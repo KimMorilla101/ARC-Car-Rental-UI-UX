@@ -1,0 +1,7 @@
+.history-page {
+  min-height: 100%;
+}
+.history-page .history-list {
+  display: grid;
+  gap: 13px;
+}

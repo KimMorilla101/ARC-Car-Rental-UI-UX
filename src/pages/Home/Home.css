@@ -1,0 +1,83 @@
+.home-page {
+  min-height: 100%;
+}
+.home-page.hero-section {
+  min-height: 610px;
+  align-items: flex-start;
+}
+.home-page .hero-copy {
+  padding-bottom: 102px;
+  padding-top: 72px;
+}
+.home-page .hero-actions {
+  margin-top: 28px;
+}
+.home-page .search-panel {
+  bottom: 0;
+}
+
+.home-page.hero-section {
+  min-height: 610px;
+  align-items: flex-start;
+}
+
+.home-page .hero-copy {
+  padding-top: 72px;
+}
+
+@media (max-width: 800px) {
+  .home-page.hero-section {
+    min-height: 650px;
+  }
+
+  .home-page .hero-copy {
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 520px) {
+  .home-page.hero-section {
+    min-height: 760px;
+  }
+
+  .home-page .hero-copy h1 {
+    font-size: 48px;
+    letter-spacing: -2.5px;
+  }
+
+  .home-page .hero-visual {
+    top: 205px;
+    height: 320px;
+  }
+
+  .home-page .search-panel {
+    grid-template-columns: 1fr;
+    gap: 0;
+    left: 20px;
+    right: 20px;
+    padding: 8px;
+  }
+
+  .home-page .search-panel .field,
+  .home-page .search-panel .location-field,
+  .home-page .search-panel .passengers {
+    grid-column: auto;
+    min-height: 58px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .home-page .search-panel .primary-button {
+    grid-column: auto;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 800px) {
+  .home-page.hero-section {
+    min-height: 650px;
+  }
+  .home-page .hero-copy {
+    padding-top: 50px;
+  }
+}

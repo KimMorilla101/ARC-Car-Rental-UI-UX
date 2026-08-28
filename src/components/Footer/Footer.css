@@ -1,0 +1,6 @@
+.footer-component {
+  display: contents;
+}
+footer {
+  flex-shrink: 0;
+}

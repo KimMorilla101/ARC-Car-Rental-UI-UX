@@ -1,0 +1,6 @@
+.faq-page {
+  min-height: 100%;
+}
+.faq-page .faq-list {
+  max-width: 800px;
+}

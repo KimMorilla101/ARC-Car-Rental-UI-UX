@@ -1,0 +1,108 @@
+.app-promo {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.25fr 0.6fr 0.35fr;
+  align-items: center;
+  width: min(1112px, calc(100% - 68px));
+  min-height: 350px;
+  margin: 20px auto 75px;
+  padding: 48px 62px;
+  overflow: hidden;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--navy);
+}
+.app-promo-copy > p:not(.eyebrow) {
+  max-width: 430px;
+  margin: 18px 0 24px;
+  color: #c5d3d8;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.app-promo h2 {
+  color: #fff;
+  font-size: 38px;
+  line-height: 1.05;
+  letter-spacing: -1.8px;
+}
+.app-promo h2 em {
+  color: #ff8a70;
+  font-style: normal;
+}
+.store-buttons {
+  display: flex;
+  gap: 8px;
+}
+.store-buttons button {
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  cursor: pointer;
+}
+.phone-mockup {
+  z-index: 1;
+  justify-self: center;
+  width: 150px;
+  height: 265px;
+  padding: 8px;
+  border: 5px solid #213e54;
+  border-radius: 25px;
+  background: #213e54;
+  box-shadow: 0 16px 25px rgba(0, 0, 0, 0.25);
+  transform: rotate(8deg) translateY(15px);
+}
+.phone-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 18px 12px;
+  border-radius: 17px;
+  color: #102c46;
+  background: #d8efe9;
+}
+.phone-screen span {
+  font: 700 15px "Space Grotesk";
+}
+.phone-screen strong {
+  margin-top: 35px;
+  font: 600 19px/1.05 "Space Grotesk";
+}
+.mini-car {
+  margin-top: auto;
+  font-size: 62px;
+  transform: rotate(-8deg);
+}
+.qr-code {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 64px;
+}
+.qr-code small {
+  color: #c5d3d8;
+  font-size: 10px;
+  white-space: nowrap;
+}
+@media (max-width: 800px) {
+  .app-promo {
+    grid-template-columns: 1fr 150px;
+    width: calc(100% - 40px);
+    min-height: 430px;
+    padding: 34px 25px;
+  }
+  .app-promo-copy {
+    grid-column: span 2;
+  }
+  .phone-mockup {
+    grid-column: 1;
+  }
+  .qr-code {
+    grid-column: 2;
+  }
+}

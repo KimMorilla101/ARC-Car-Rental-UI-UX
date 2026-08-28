@@ -1,0 +1,9 @@
+.profile-page {
+  min-height: 100%;
+}
+.profile-page .settings-card {
+  min-width: 0;
+}
+.profile-page .appearance {
+  margin-top: 25px;
+}

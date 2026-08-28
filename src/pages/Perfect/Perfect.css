@@ -1,0 +1,38 @@
+.perfect-page {
+  min-height: 100%;
+}
+.perfect-page .recommendations {
+  min-width: 0;
+}
+.perfect-page .preference-card {
+  align-self: start;
+}
+.perfect-page .preference-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.perfect-page .preference-card h2 .ui-icon { width: 25px; height: 25px; }
+.preference-field {
+  display: block;
+  margin: 15px 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+.preference-field > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+.preference-field input,
+.preference-field select {
+  width: 100%;
+  padding: 13px 12px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  outline-color: var(--coral);
+  color: var(--ink);
+  background: var(--surface);
+}

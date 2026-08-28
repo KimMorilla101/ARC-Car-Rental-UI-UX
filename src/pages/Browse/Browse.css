@@ -1,0 +1,139 @@
+.browse-page {
+  min-height: 100%;
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding-bottom: 72px;
+}
+.browse-page .browse-intro {
+  width: 100%;
+  margin: 30px 0 24px;
+}
+.browse-page .browse-intro h1 {
+  font-size: 38px;
+  letter-spacing: -1.5px;
+}
+.browse-page .browse-intro .muted { font-size: 13px; }
+.browse-page .browse-toolbar {
+  width: 100%;
+  margin: 0 0 16px;
+  gap: 10px;
+}
+.browse-page .browse-search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 9px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.browse-page .browse-search span { color: #8da0b3; font-size: 20px; }
+.browse-page .browse-search span svg { display: block; width: 17px; height: 17px; }
+.browse-page .browse-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 0;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+  font-size: 13px;
+}
+.browse-page .browse-toolbar > select {
+  width: 150px;
+  padding: 13px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 12px;
+}
+.category-pills {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 0 0 20px;
+}
+.category-pills button,
+.passenger-options button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--surface);
+  font-size: 11px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.category-pills button { padding: 8px 14px; }
+.category-pills button:hover,
+.category-pills button.selected,
+.passenger-options button.selected { border-color: #1f67f5; color: #fff; background: #1f67f5; }
+.browse-content {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.browse-filters {
+  padding: 18px 14px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+  box-shadow: 0 8px 20px rgba(16, 35, 56, .04);
+}
+.browse-filters h2 { margin-bottom: 18px; font-size: 15px; }
+.filter-title {
+  margin: 18px 0 8px;
+  color: var(--muted);
+  font: 700 10px 'DM Sans', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.filter-title svg { width: 12px; height: 12px; margin-right: 5px; vertical-align: -2px; }
+.browse-filters > h2 { display: flex; align-items: center; gap: 7px; }
+.browse-filters > h2 svg { width: 15px; height: 15px; color: var(--coral); }
+.filter-check,
+.filter-radio { display: flex; align-items: center; gap: 7px; margin: 8px 0; color: var(--muted); font-size: 11px; }
+.filter-check input,
+.filter-radio input { accent-color: #1f67f5; }
+.passenger-options { display: flex; gap: 4px; }
+.passenger-options button { padding: 6px 8px; font-size: 10px; }
+.browse-results { min-width: 0; }
+.result-count { margin: 0 0 10px; color: var(--muted); font-size: 11px; }
+.result-count strong { color: var(--ink); }
+.browse-page .browse-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  margin: 0;
+}
+.browse-page .vehicle-card { min-width: 0; }
+.browse-page .vehicle-image { height: 150px; }
+.browse-page .vehicle-info { padding: 13px; }
+.browse-page .vehicle-info > .muted { overflow: hidden; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.browse-page .vehicle-info h2 { margin: 6px 0; font-size: 16px; }
+.browse-page .specs { gap: 8px; margin: 12px 0; font-size: 10px; }
+.browse-page .price strong { font-size: 15px; }
+.browse-page .price > div:last-child { gap: 7px; }
+.browse-page .price .text-link { font-size: 10px; }
+.browse-page .price .button { padding: 8px 9px; font-size: 10px; }
+
+@media (max-width: 900px) {
+  .browse-page .browse-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 650px) {
+  .browse-page { width: calc(100% - 32px); }
+  .browse-page .browse-intro h1 { font-size: 32px; }
+  .browse-page .browse-toolbar { flex-direction: column; }
+  .browse-page .browse-toolbar > select { width: 100%; }
+  .browse-content { grid-template-columns: 1fr; }
+  .browse-filters { order: 2; }
+  .browse-results { order: 1; }
+}
+
+@media (max-width: 430px) {
+  .browse-page .browse-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,7 @@
+.notifications-page {
+  min-height: 100%;
+}
+.notifications-page .notification-list {
+  display: grid;
+  gap: 8px;
+}

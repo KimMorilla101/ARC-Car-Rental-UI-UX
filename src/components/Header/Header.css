@@ -1,0 +1,54 @@
+.header-component {
+  display: contents;
+}
+.site-header {
+  position: relative;
+}
+.theme-select svg,
+.icon-button svg,
+.menu-toggle svg { display: block; }
+.brand-car-icon { width: 18px; height: 18px; color: #fff; }
+.icon-button { display: inline-flex; align-items: center; }
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .site-header .nav-links {
+    display: none !important;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 20;
+    width: min(260px, calc(100vw - 40px));
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+  .site-header .nav-links.is-open {
+    display: flex !important;
+  }
+  .site-header .nav-links button {
+    padding: 12px;
+    text-align: left;
+  }
+  .site-header .menu-toggle {
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    color: var(--ink);
+    background: var(--surface);
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+  }
+}

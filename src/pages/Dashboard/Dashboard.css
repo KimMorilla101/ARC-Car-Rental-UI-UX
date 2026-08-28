@@ -1,0 +1,36 @@
+.dashboard-page {
+  min-height: 100%;
+}
+.dashboard-page .dashboard-fleet {
+  margin-top: 65px;
+}
+.dashboard-page .current-rental {
+  min-height: 220px;
+}
+.active-rental-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 68px);
+  margin: 18px auto 42px;
+  padding: 18px 24px;
+  border-radius: 9px;
+  color: white;
+  background: #08a184;
+}
+.active-rental-copy { font-size: 10px; font-weight: 700; letter-spacing: .7px; }
+.active-rental-copy h2 { margin: 5px 0 2px; color: white; font: 600 17px "DM Sans", sans-serif; letter-spacing: 0; }
+.active-rental-copy p { margin: 0; color: #d2fff4; font-size: 11px; font-weight: 400; letter-spacing: 0; }
+.live-dot { display: inline-block; width: 8px; height: 8px; margin-right: 5px; border-radius: 50%; background: #79f3b9; }
+.active-rental-banner > button { padding: 10px 15px; border: 1px solid rgba(255,255,255,.35); border-radius: 6px; color: white; background: rgba(255,255,255,.12); cursor: pointer; font-size: 11px; }
+.active-rental-banner > button span { margin-left: 12px; font-size: 17px; }
+.upcoming-bookings { width: calc(100% - 68px); margin: 0 auto 50px; }
+.upcoming-bookings .section-heading { margin-bottom: 12px; }
+.upcoming-bookings .section-heading h2 { font-size: 22px; }
+.upcoming-list { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.upcoming-list > button { display: flex; align-items: center; gap: 11px; padding: 11px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: var(--surface); text-align: left; cursor: pointer; }
+.upcoming-list img { width: 60px; height: 48px; border-radius: 5px; object-fit: cover; }
+.upcoming-list span { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.upcoming-list strong { font-size: 12px; }.upcoming-list small { color: var(--muted); font-size: 9px; }.upcoming-list .status { margin-left: auto; white-space: nowrap; }
+.confirmed { color: #216d5e; background: #e1f6ef; }
+@media (max-width: 800px) { .active-rental-banner,.upcoming-bookings { width: calc(100% - 40px); }.upcoming-list { grid-template-columns: 1fr; } }

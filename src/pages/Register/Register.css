@@ -1,0 +1,6 @@
+.register-page {
+  min-height: calc(100vh - 82px);
+}
+.register-page .check-row {
+  margin: 18px 0;
+}

@@ -1,0 +1,9 @@
+.bookings-page {
+  min-height: 100%;
+}
+.bookings-page .booking-card {
+  overflow: hidden;
+}
+.bookings-page .tabs {
+  margin-top: 8px;
+}

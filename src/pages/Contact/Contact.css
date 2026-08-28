@@ -1,0 +1,6 @@
+.contact-page {
+  min-height: 100%;
+}
+.contact-page .contact-layout {
+  align-items: start;
+}

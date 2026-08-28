@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: "DM Sans", sans-serif;
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    color-scheme: dark;
+  }
+}
+body {
+  margin: 0;
+  min-width: 320px;
+}
+button,
+input,
+select {
+  font: inherit;
+}

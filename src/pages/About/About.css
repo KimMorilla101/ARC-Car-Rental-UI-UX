@@ -1,0 +1,6 @@
+.about-page {
+  min-height: 100%;
+}
+.about-page .info-copy {
+  max-width: 680px;
+}

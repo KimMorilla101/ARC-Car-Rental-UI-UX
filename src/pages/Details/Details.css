@@ -1,0 +1,9 @@
+.details-page {
+  min-height: 100%;
+}
+.details-page .details-copy {
+  min-width: 0;
+}
+.details-page .reviews {
+  margin-top: 75px;
+}

@@ -1,0 +1,9 @@
+.booking-page {
+  min-height: 100%;
+}
+.booking-page .booking-form {
+  min-width: 0;
+}
+.booking-page .stepper {
+  margin-bottom: 35px;
+}

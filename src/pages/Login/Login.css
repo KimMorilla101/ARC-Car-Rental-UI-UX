@@ -1,0 +1,6 @@
+.login-page {
+  min-height: calc(100vh - 82px);
+}
+.login-page .auth-card {
+  align-self: center;
+}
