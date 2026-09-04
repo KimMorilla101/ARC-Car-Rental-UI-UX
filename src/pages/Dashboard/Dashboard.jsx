@@ -1,7 +1,7 @@
 import { Button, VehicleCard } from "../../components/UI/UI";
 import "./Dashboard.css";
 
-export default function Dashboard({ user, go, cars, openCar, requestBooking }) {
+export default function Dashboard({ user, go, cars, openCar, requestBooking, trustScore, activeRental, rentalIsActive, extensionIsAvailable }) {
   return (
     <div className="dashboard-page">
       <div className="page-intro">
@@ -45,11 +45,15 @@ export default function Dashboard({ user, go, cars, openCar, requestBooking }) {
       </div>
       <section className="active-rental-banner">
         <div className="active-rental-copy">
-          <span className="live-dot" /> CURRENTLY ACTIVE
-          <h2>Honda Civic 2024</h2>
-          <p>Return date: August 22, 2026</p>
+          <span className="live-dot" /> {rentalIsActive ? "CURRENTLY ACTIVE" : "RETURN VEHICLE MODE"}
+          <h2>{activeRental.car.name}</h2>
+          <p>Pick-up: {new Date(activeRental.pickupAt).toLocaleString()} · Return: {new Date(activeRental.returnAt).toLocaleString()}</p>
         </div>
-        <button onClick={() => go("details")}>View details <span>›</span></button>
+        <button onClick={() => go("bookings")}>{extensionIsAvailable ? "Manage rental" : "Return vehicle"} <span>›</span></button>
+      </section>
+      <section className="trust-score-panel">
+        <div><p className="eyebrow">ARC DRIVER PROFILE</p><h2>Your Trust Score</h2><p className="muted">Managed by ARC Car Rental and based on your rental history.</p></div>
+        <strong>{trustScore}%</strong>
       </section>
       <section className="upcoming-bookings">
         <div className="section-heading">

@@ -1,7 +1,7 @@
 import { Button, Field } from "../../components/UI/UI";
 import "./Profile.css";
 
-export default function Profile({ theme, setTheme, go, logout }) {
+export default function Profile({ theme, setTheme, go, logout, trustScore }) {
   return (
     <div className="profile-page">
       <div className="page-intro">
@@ -45,6 +45,10 @@ export default function Profile({ theme, setTheme, go, logout }) {
                 </button>
               ))}
             </div>
+          </div>
+          <div className="trust-score-profile">
+            <div><h3>Trust Score</h3><p className="muted">Managed by ARC Car Rental. View-only.</p></div>
+            <strong>{trustScore}%</strong>
           </div>
           <Button type="submit">Save changes</Button>
         </form>

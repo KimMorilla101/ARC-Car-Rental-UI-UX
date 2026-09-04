@@ -7,6 +7,20 @@
 .dashboard-page .current-rental {
   min-height: 220px;
 }
+.trust-score-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 68px);
+  margin: 0 auto 30px;
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+}
+.trust-score-panel .eyebrow { margin-bottom: 7px; }
+.trust-score-panel h2 { font-size: 23px; }
+.trust-score-panel strong { color: var(--coral); font: 700 31px "Space Grotesk", sans-serif; }
 .active-rental-banner {
   display: flex;
   align-items: center;
@@ -34,3 +48,4 @@
 .upcoming-list strong { font-size: 12px; }.upcoming-list small { color: var(--muted); font-size: 9px; }.upcoming-list .status { margin-left: auto; white-space: nowrap; }
 .confirmed { color: #216d5e; background: #e1f6ef; }
 @media (max-width: 800px) { .active-rental-banner,.upcoming-bookings { width: calc(100% - 40px); }.upcoming-list { grid-template-columns: 1fr; } }
+@media (max-width: 800px) { .trust-score-panel { width: calc(100% - 40px); } }

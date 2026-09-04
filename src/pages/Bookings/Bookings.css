@@ -7,3 +7,28 @@
 .bookings-page .tabs {
   margin-top: 8px;
 }
+.extension-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 18px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+}
+.extension-panel h2 { margin-bottom: 7px; font-size: 25px; }
+.extension-panel form { display: flex; align-items: end; gap: 16px; }
+.extension-panel .form-field { flex: 1; }
+.extension-panel input { min-width: 0; }
+.extension-cost { margin: 0 0 12px; color: var(--ink); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.extension-locked { align-self: center; color: var(--muted); font-size: 12px; }
+.extension-locked strong { color: var(--coral); }
+.extension-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+.extension-options button { display: flex; flex-direction: column; gap: 5px; padding: 11px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); background: var(--paper); text-align: left; cursor: pointer; }
+.extension-options button.selected { border-color: var(--coral); color: var(--coral); background: var(--mint); }
+.extension-options span { color: var(--muted); font-size: 10px; }
+.extension-review { display: grid; grid-template-columns: 1fr auto; gap: 7px 14px; margin: 14px 0; color: var(--muted); font-size: 11px; }
+.extension-review strong { color: var(--ink); text-align: right; }
+.late-return { color: var(--coral); font-size: 12px; font-weight: 700; }
+@media (max-width: 700px) { .extension-panel { grid-template-columns: 1fr; } .extension-panel form { align-items: stretch; flex-direction: column; gap: 8px; } }

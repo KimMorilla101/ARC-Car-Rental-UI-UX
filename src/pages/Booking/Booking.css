@@ -7,3 +7,34 @@
 .booking-page .stepper {
   margin-bottom: 35px;
 }
+.fixed-return-field strong { display: block; margin-top: 8px; color: var(--ink); font-size: 13px; }
+.fixed-return-field small { display: block; margin-top: 5px; color: var(--muted); font-size: 10px; }
+.fixed-return-field input { margin-bottom: 2px; }
+.location-label { display: block; margin-top: 22px; }
+.location-options { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin: 10px 0 15px; }
+.location-options button { display: flex; flex-direction: column; gap: 4px; padding: 13px; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); background: var(--surface); text-align: left; cursor: pointer; }
+.location-options button.selected { border-color: var(--coral); background: var(--mint); }
+.location-options span, .location-options small { color: var(--muted); font-size: 10px; }
+.location-options button.selected strong { color: var(--coral); }
+.destination-options button { min-height: 68px; }
+@media (max-width: 600px) { .location-options { grid-template-columns: 1fr; } }
+.choice-row { display: flex; flex-wrap: wrap; gap: 9px; margin: 20px 0; }
+.choice-row button { padding: 11px 14px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); background: var(--surface); cursor: pointer; }
+.choice-row button.selected { border-color: var(--coral); color: var(--coral); background: var(--mint); }
+.choice-row small { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; }
+.fee-note { color: var(--muted); font-size: 11px; }
+.unit-picker, .payment-methods { margin-top: 25px; }
+.unit-picker h3, .payment-methods h3 { margin-bottom: 11px; font: 600 14px "DM Sans", sans-serif; }
+.upload-row { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.upload-row span { display: flex; flex-direction: column; gap: 4px; }
+.upload-row small { color: var(--muted); font-size: 10px; }
+.upload-row input { max-width: 210px; color: var(--muted); font-size: 11px; }
+.review-summary p { display: flex; justify-content: space-between; gap: 18px; }
+.review-summary p span { text-align: right; }
+.agreement-button { margin: 18px 0 10px; padding: 0; border: 0; color: var(--coral); background: none; cursor: pointer; font-size: 12px; font-weight: 700; text-decoration: underline; }
+.agreement-box { max-height: 190px; overflow-y: auto; margin: 10px 0 16px; padding: 18px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); background: var(--paper); font-size: 11px; line-height: 1.6; }
+.agreement-box h3 { margin-bottom: 10px; color: var(--ink); font: 600 15px "DM Sans", sans-serif; }
+.agreement-box p { margin: 0 0 11px; }
+.agreement-box b { color: var(--ink); }
+.agreement-box small { color: var(--coral); font-weight: 700; }
+@media (max-width: 600px) { .upload-row { align-items: flex-start; flex-direction: column; } .upload-row input { max-width: 100%; } }

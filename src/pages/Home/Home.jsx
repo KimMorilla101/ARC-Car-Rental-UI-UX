@@ -1,4 +1,7 @@
 import AppPromo from "../../components/AppPromo/AppPromo";
+import rav4Image from "../../assets/cars/rav4.png";
+import civicImage from "../../assets/cars/civic.png";
+import everestImage from "../../assets/cars/everest.png";
 import "./Home.css";
 
 const featuredCars = [
@@ -7,24 +10,21 @@ const featuredCars = [
     type: "SUV",
     price: "₱2,450",
     tag: "Most Rented",
-    image:
-      "https://images.unsplash.com/photo-1568844293986-8c3c3f5b5f31?auto=format&fit=crop&w=900&q=85",
+    image: rav4Image,
   },
   {
     name: "Honda Civic",
     type: "Sedan",
     price: "₱2,100",
     tag: "Popular",
-    image:
-      "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=85",
+    image: civicImage,
   },
   {
     name: "Ford Everest",
     type: "Premium SUV",
     price: "₱3,800",
     tag: "High Demand",
-    image:
-      "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=85",
+    image: everestImage,
   },
 ];
 

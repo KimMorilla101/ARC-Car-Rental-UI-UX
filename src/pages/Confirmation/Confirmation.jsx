@@ -1,6 +1,7 @@
 import "./Confirmation.css";
 
 import { Button } from "../../components/UI/UI";
+import rav4Image from "../../assets/cars/rav4.png";
 import "./Confirmation.css";
 
 export default function Confirmation({ go }) {
@@ -17,7 +18,7 @@ export default function Confirmation({ go }) {
       <button className="reference">ARC-2026-00125 ⧉</button>
       <div className="confirmation-card">
         <img
-          src="https://images.unsplash.com/photo-1568844293986-8c3c3f5b5f31?auto=format&fit=crop&w=900&q=85"
+          src={rav4Image}
           alt="Toyota RAV4"
         />
         <div>

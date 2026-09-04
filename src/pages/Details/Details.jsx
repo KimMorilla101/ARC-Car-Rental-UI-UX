@@ -20,7 +20,7 @@ export default function Details({
           <img className="details-image" src={car.image} alt={car.name} />
           <div className="gallery">
             <img src={car.image} alt="" />
-            <img src={car.image} alt="" />
+            <img src={car.galleryImage || car.image} alt={`${car.name} rear view`} />
           </div>
         </div>
         <div className="details-copy">

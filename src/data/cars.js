@@ -1,3 +1,13 @@
+import rav4Image from "../assets/cars/rav4.png";
+import civicImage from "../assets/cars/civic.png";
+import everestImage from "../assets/cars/everest.png";
+import viosImage from "../assets/cars/vios.png";
+import hiaceImage from "../assets/cars/hiace.png";
+import hiluxImage from "../assets/cars/hilux.png";
+import mazda3Image from "../assets/cars/mazda3.png";
+import bmw3Image from "../assets/cars/bmw3.png";
+import swiftImage from "../assets/cars/swift.png";
+
 export const cars = [
   {
     id: 1,
@@ -8,9 +18,11 @@ export const cars = [
     transmission: "Automatic",
     fuel: "Petrol",
     price: 2450,
+    units: ["RAV4-01", "RAV4-02", "RAV4-03"],
+    galleryImage:
+      "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=700&q=85",
     tag: "Most Rented",
-    image:
-      "https://images.unsplash.com/photo-1568844293986-8c3c3f5b5f31?auto=format&fit=crop&w=900&q=85",
+    image: rav4Image,
     description:
       "Confident, comfortable, and ready for long weekends or city escapes.",
   },
@@ -23,9 +35,9 @@ export const cars = [
     transmission: "Automatic",
     fuel: "Petrol",
     price: 2100,
+    units: ["CIVIC-01", "CIVIC-02", "CIVIC-03"],
     tag: "Popular",
-    image:
-      "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=85",
+    image: civicImage,
     description:
       "A smooth, refined drive with thoughtful space for every passenger.",
   },
@@ -38,9 +50,9 @@ export const cars = [
     transmission: "Automatic",
     fuel: "Diesel",
     price: 3800,
+    units: ["EVEREST-01", "EVEREST-02"],
     tag: "High Demand",
-    image:
-      "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=85",
+    image: everestImage,
     description: "Premium comfort and generous room for the whole crew.",
   },
   {
@@ -52,10 +64,80 @@ export const cars = [
     transmission: "Automatic",
     fuel: "Petrol",
     price: 1800,
+    units: ["VIOS-01", "VIOS-02", "VIOS-03", "VIOS-04"],
     tag: "Best value",
-    image:
-      "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=85",
+    image: viosImage,
     description: "Efficient, easy to drive, and perfect for everyday travel.",
+  },
+  {
+    id: 5,
+    name: "Toyota HiAce",
+    type: "Van/MPV",
+    seats: 12,
+    doors: 4,
+    transmission: "Automatic",
+    fuel: "Diesel",
+    price: 4200,
+    units: ["HIACE-01", "HIACE-02"],
+    tag: "Family choice",
+    image: hiaceImage,
+    description: "Spacious, practical, and ready for group trips and family escapes.",
+  },
+  {
+    id: 6,
+    name: "Toyota Hilux",
+    type: "Pickup",
+    seats: 5,
+    doors: 4,
+    transmission: "Automatic",
+    fuel: "Diesel",
+    price: 3500,
+    units: ["HILUX-01", "HILUX-02"],
+    tag: "Adventure ready",
+    image: hiluxImage,
+    description: "Capable, comfortable, and built for weekends beyond the city.",
+  },
+  {
+    id: 7,
+    name: "Mazda 3",
+    type: "Sedan",
+    seats: 5,
+    doors: 4,
+    transmission: "Automatic",
+    fuel: "Petrol",
+    price: 2300,
+    units: ["MAZDA3-01", "MAZDA3-02"],
+    tag: "New arrival",
+    image: mazda3Image,
+    description: "A polished, composed drive for city days and open-road plans.",
+  },
+  {
+    id: 8,
+    name: "BMW 3 Series",
+    type: "Luxury",
+    seats: 5,
+    doors: 4,
+    transmission: "Automatic",
+    fuel: "Petrol",
+    price: 5200,
+    units: ["BMW3-01"],
+    tag: "Premium",
+    image: bmw3Image,
+    description: "Refined performance and premium comfort for important journeys.",
+  },
+  {
+    id: 9,
+    name: "Suzuki Swift",
+    type: "Hatchback",
+    seats: 5,
+    doors: 5,
+    transmission: "Automatic",
+    fuel: "Petrol",
+    price: 1900,
+    units: ["SWIFT-01", "SWIFT-02", "SWIFT-03"],
+    tag: "City friendly",
+    image: swiftImage,
+    description: "Compact, nimble, and easy to enjoy around town.",
   },
 ];
 

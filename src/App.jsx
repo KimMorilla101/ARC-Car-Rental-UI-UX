@@ -19,6 +19,7 @@ import Profile from "./pages/Profile/Profile";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import FAQ from "./pages/FAQ/FAQ";
+import Admin from "./pages/Admin/Admin";
 import { cars } from "./data/cars";
 import "./App.css";
 
@@ -32,6 +33,26 @@ export default function App() {
   const [favoriteIds, setFavoriteIds] = useState([2]);
   const [bookingStep, setBookingStep] = useState(1);
   const [notice, setNotice] = useState("");
+  const [clock, setClock] = useState(0);
+  const [trustScore, setTrustScore] = useState(87);
+  const [activeRental, setActiveRental] = useState({
+    reference: "ARC-2026-00091",
+    car: cars[1],
+    pickupAt: "2026-09-04T10:00",
+    originalReturn: "2026-09-07T10:00",
+    returnAt: "2026-09-07T10:00",
+    returnedAt: null,
+    extensionRequest: null,
+  });
+
+  useEffect(() => {
+    const initialRefresh = window.setTimeout(() => setClock(Date.now()), 0);
+    const timer = window.setInterval(() => setClock(Date.now()), 30000);
+    return () => {
+      window.clearTimeout(initialRefresh);
+      window.clearInterval(timer);
+    };
+  }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -54,6 +75,7 @@ export default function App() {
     );
   const requestBooking = (car = selectedCar) => {
     setSelectedCar(car);
+    setBookingStep(1);
     user ? go("booking") : go("login");
   };
   const login = (event) => {
@@ -70,6 +92,38 @@ export default function App() {
     setUser(null);
     go("home");
   };
+  const rentalDeadline = new Date(activeRental.returnAt).getTime();
+  const rentalIsActive = !activeRental.returnedAt && clock < rentalDeadline;
+  const extensionIsAvailable = rentalIsActive && !activeRental.extensionRequest;
+  const extensionRates = { hourly: 350, daily: activeRental.car.price, monthly: activeRental.car.price * 25 };
+  const requestExtension = (type, duration) => {
+    const currentReturn = new Date(activeRental.returnAt);
+    const amount = Number(duration);
+    const requestedDate = new Date(currentReturn);
+    if (type === "hourly") requestedDate.setDate(requestedDate.getDate() + Math.ceil(amount / 24));
+    if (type === "daily") requestedDate.setDate(requestedDate.getDate() + amount);
+    if (type === "monthly") requestedDate.setMonth(requestedDate.getMonth() + amount);
+    const pickupTime = new Date(activeRental.pickupAt);
+    requestedDate.setHours(pickupTime.getHours(), pickupTime.getMinutes(), 0, 0);
+    const available = amount > 0 && requestedDate > currentReturn && requestedDate.getTime() - currentReturn.getTime() <= 31 * 86400000;
+    if (!extensionIsAvailable || !available) {
+      setNotice(!rentalIsActive ? "This rental has expired. Return the vehicle before booking again." : "Those dates are unavailable for this vehicle.");
+      return false;
+    }
+    setActiveRental((current) => ({ ...current, extensionRequest: { type, duration: amount, returnAt: requestedDate.toISOString(), cost: amount * extensionRates[type], status: "Pending ARC approval" } }));
+    setNotice("Extension request submitted for ARC approval.");
+    return true;
+  };
+  const approveExtension = () => {
+    if (!activeRental.extensionRequest) return;
+    setActiveRental((current) => ({ ...current, returnAt: current.extensionRequest.returnAt, extensionRequest: { ...current.extensionRequest, status: "Approved" } }));
+    setNotice("Rental extension approved. Your return time has been updated.");
+  };
+  const returnVehicle = () => {
+    if (activeRental.returnedAt) return;
+    setActiveRental((current) => ({ ...current, returnedAt: new Date().toISOString() }));
+    setNotice("Vehicle return recorded. Any late-return fee is shown in your booking.");
+  };
   const shared = {
     go,
     openCar,
@@ -79,6 +133,13 @@ export default function App() {
     toggleFavorite,
     user,
     setNotice,
+    trustScore,
+    activeRental,
+    rentalIsActive,
+    extensionIsAvailable,
+    requestExtension,
+    extensionRates,
+    returnVehicle,
   };
 
   const pages = {
@@ -97,18 +158,20 @@ export default function App() {
         setStep={setBookingStep}
         go={go}
         setNotice={setNotice}
+        pickupAt={activeRental.pickupAt}
       />
     ),
     confirmation: <Confirmation go={go} />,
-    bookings: <Bookings go={go} setNotice={setNotice} />,
-    history: <History requestBooking={requestBooking} />,
+    bookings: <Bookings go={go} setNotice={setNotice} {...shared} />,
+    history: <History cars={cars} requestBooking={requestBooking} />,
     notifications: <Notifications />,
     profile: (
-      <Profile theme={theme} setTheme={setTheme} go={go} logout={logout} />
+      <Profile theme={theme} setTheme={setTheme} go={go} logout={logout} trustScore={trustScore} />
     ),
     about: <About go={go} />,
     contact: <Contact />,
     faq: <FAQ />,
+    admin: <Admin trustScore={trustScore} setTrustScore={setTrustScore} activeRental={activeRental} approveExtension={approveExtension} go={go} />,
   };
   return (
     <div className="app-shell">

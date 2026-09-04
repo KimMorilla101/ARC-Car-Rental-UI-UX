@@ -7,3 +7,8 @@
 .profile-page .appearance {
   margin-top: 25px;
 }
+.trust-score-profile { display: flex; align-items: center; justify-content: space-between; margin: 25px 0; padding: 16px; border: 1px solid var(--line); border-radius: 7px; }
+.trust-score-profile h3 { font: 600 15px "DM Sans", sans-serif; }
+.trust-score-profile p { margin-top: 4px; font-size: 11px; }
+.trust-score-profile strong { color: var(--coral); font: 700 24px "Space Grotesk", sans-serif; }
+.admin-link { margin-top: 16px; color: var(--coral); background: none; border: 0; cursor: pointer; font-size: 12px; }
