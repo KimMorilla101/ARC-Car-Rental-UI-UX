@@ -12,8 +12,8 @@ export default function AppPromo() {
           <em>Download our app.</em>
         </h2>
         <p>
-          Manage bookings, get trip notifications, save cars, request
-          extensions, and book again wherever you are.
+          Manage bookings, save cars, request extensions, and book again
+          wherever you are.
         </p>
         <div className="store-buttons">
           <button>▶ Google Play</button>

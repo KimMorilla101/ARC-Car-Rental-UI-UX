@@ -6,8 +6,6 @@ import "./Details.css";
 export default function Details({
   car,
   requestBooking,
-  favoriteIds,
-  toggleFavorite,
   go,
 }) {
   return (
@@ -29,12 +27,6 @@ export default function Details({
               <p className="eyebrow">{car.type.toUpperCase()}</p>
               <h1>{car.name}</h1>
             </div>
-            <button
-              className="save-large"
-              onClick={() => toggleFavorite(car.id)}
-            >
-              {favoriteIds.includes(car.id) ? "♥ Saved" : "♡ Save"}
-            </button>
           </div>
           <div className="rating">
             ★★★★★ <span>4.9 · 28 reviews</span>

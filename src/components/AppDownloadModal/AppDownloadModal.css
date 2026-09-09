@@ -1,0 +1,84 @@
+.app-download-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(7, 25, 39, 0.62);
+}
+
+.app-download-modal {
+  position: relative;
+  width: min(100%, 460px);
+  padding: 42px;
+  border-radius: 12px;
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  text-align: center;
+}
+
+.app-download-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  color: var(--coral);
+  background: var(--mint);
+}
+
+.app-download-icon svg { width: 25px; height: 25px; }
+
+.app-download-modal h2 { margin: 8px 0 12px; font-size: 28px; }
+
+.app-download-modal > p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.app-download-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+}
+
+.app-download-close:hover { background: var(--mint); color: var(--ink); }
+.app-download-close svg { width: 18px; height: 18px; }
+
+.app-download-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 25px 0 16px; }
+
+.app-download-actions button {
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  background: var(--navy);
+  cursor: pointer;
+  font: 600 12px "DM Sans";
+}
+
+.app-download-dismiss {
+  border: 0;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+@media (max-width: 520px) {
+  .app-download-modal { padding: 38px 24px 30px; }
+  .app-download-modal h2 { font-size: 24px; }
+  .app-download-actions button { flex: 1 1 130px; }
+}

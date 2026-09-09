@@ -4,23 +4,21 @@
 .site-header {
   position: relative;
 }
-.theme-select svg,
-.icon-button svg,
+.theme-toggle svg,
 .menu-toggle svg { display: block; }
 .brand-car-icon { width: 18px; height: 18px; color: #fff; }
-.icon-button { display: inline-flex; align-items: center; }
 .menu-toggle {
   display: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1050px) {
   .site-header .nav-links {
     display: none !important;
     position: absolute;
     top: calc(100% + 10px);
     right: 0;
     z-index: 20;
-    width: min(260px, calc(100vw - 40px));
+    width: min(280px, calc(100vw - 32px));
     flex-direction: column;
     align-items: stretch;
     gap: 0;

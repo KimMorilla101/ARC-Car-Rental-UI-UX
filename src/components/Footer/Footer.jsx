@@ -6,7 +6,7 @@ export default function Footer({ go }) {
     <footer>
       <button className="brand-mark" type="button" onClick={() => go("home")}>
         <CarFront className="brand-car-icon" aria-hidden="true" />
-        <span>ARC</span>
+        <span>ARC Ride</span>
         <i>CAR RENTAL</i>
       </button>
       <p>Made for the miles ahead.</p>
@@ -16,7 +16,7 @@ export default function Footer({ go }) {
         <button onClick={() => go("faq")}>FAQ</button>
         <button>Privacy</button>
       </nav>
-      <span>© 2026 ARC Car Rental</span>
+      <span>© 2026 ARC Ride Car Rental</span>
     </footer>
   );
 }

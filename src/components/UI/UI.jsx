@@ -1,5 +1,5 @@
 import "./UI.css";
-import { Fuel, Gauge, Heart } from "lucide-react";
+import { Fuel, Gauge } from "lucide-react";
 
 export function Button({
   children,
@@ -31,7 +31,7 @@ export function Icon({ children, label }) {
   return <span className="ui-icon" aria-label={label} aria-hidden={!label}>{children}</span>;
 }
 
-export function VehicleCard({ car, onBook, onDetails, saved = false, onSave }) {
+export function VehicleCard({ car, onBook, onDetails }) {
   return (
     <article className="vehicle-card">
       <div className="vehicle-image">
@@ -39,15 +39,6 @@ export function VehicleCard({ car, onBook, onDetails, saved = false, onSave }) {
         <span className="availability">
           <i /> Available
         </span>
-        {onSave && (
-          <button
-            className="save-button"
-            onClick={() => onSave(car.id)}
-            aria-label={`Save ${car.name}`}
-          >
-            <Heart fill={saved ? "currentColor" : "none"} />
-          </button>
-        )}
       </div>
       <div className="vehicle-info">
         <p className="muted">

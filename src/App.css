@@ -88,20 +88,19 @@
   gap: 18px;
   align-items: center;
 }
-.theme-select {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--muted);
-  font-size: 12px;
-}
-.theme-select select {
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
   border: 0;
+  border-radius: 50%;
+  color: var(--muted);
   background: transparent;
-  color: var(--ink);
-  font: inherit;
   cursor: pointer;
 }
+.theme-toggle:hover { color: var(--coral); background: var(--mint); }
 .signin {
   background: none;
   border: 0;
@@ -657,7 +656,6 @@ footer > span {
 
 .nav-links button,
 .signin,
-.theme-select,
 .field label,
 .field input,
 .field select {
@@ -777,26 +775,12 @@ footer > span {
 .nav-links button.active {
   color: var(--coral);
 }
-.icon-button,
 .profile-button {
   position: relative;
   border: 0;
   background: transparent;
   color: var(--muted);
   cursor: pointer;
-}
-.icon-button b {
-  position: absolute;
-  top: -6px;
-  right: -8px;
-  display: grid;
-  place-items: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  color: #fff;
-  background: var(--coral);
-  font-size: 8px;
 }
 .profile-button,
 .avatar {
@@ -838,7 +822,6 @@ footer > span {
 .booking-page,
 .bookings-page,
 .history-page,
-.notifications-page,
 .profile-page,
 .info-page,
 .faq-page {
@@ -1569,7 +1552,6 @@ footer > span {
 }
 .bookings-page,
 .history-page,
-.notifications-page,
 .profile-page {
   width: min(1000px, calc(100% - 68px));
   margin: auto;
@@ -1600,8 +1582,7 @@ footer > span {
   font-size: 10px;
 }
 .booking-card,
-.history-card,
-.notification {
+.history-card {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
@@ -1700,58 +1681,6 @@ footer > span {
 .history-card .button {
   margin-left: auto;
   white-space: nowrap;
-}
-.notification-list {
-  display: grid;
-  gap: 8px;
-}
-.notification {
-  display: flex;
-  align-items: start;
-  gap: 15px;
-  padding: 18px;
-}
-.notification.unread {
-  border-left: 3px solid var(--coral);
-}
-.notification-dot {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  color: var(--coral);
-  background: var(--mint);
-}
-.notification h3 {
-  font-size: 14px;
-}
-.notification p {
-  margin: 4px 0;
-  color: var(--muted);
-  font-size: 12px;
-}
-.notification small {
-  color: var(--muted);
-  font-size: 10px;
-}
-.notification button {
-  margin-left: auto;
-  border: 0;
-  color: var(--muted);
-  background: none;
-}
-.notification-count {
-  display: inline-grid;
-  place-items: center;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  color: white;
-  background: var(--coral);
-  font: 500 12px "DM Sans";
-  vertical-align: middle;
-  letter-spacing: 0;
 }
 .settings-layout {
   display: grid;
@@ -2106,7 +2035,6 @@ footer nav button {
   .booking-page,
   .bookings-page,
   .history-page,
-  .notifications-page,
   .profile-page,
   .info-page,
   .faq-list,

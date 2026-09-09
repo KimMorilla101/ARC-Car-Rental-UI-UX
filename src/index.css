@@ -6,6 +6,12 @@ html {
   color-scheme: light;
   scroll-behavior: smooth;
 }
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 html[data-theme="dark"] {
   color-scheme: dark;
 }
@@ -22,4 +28,6 @@ button,
 input,
 select {
   font: inherit;
+  max-width: 100%;
 }
+img { max-width: 100%; }

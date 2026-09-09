@@ -5,7 +5,7 @@ import "./Browse.css";
 
 const categories = ["All", "Sedan", "SUV", "Van/MPV", "Pickup", "Luxury", "Hatchback"];
 
-export default function Browse({ cars, openCar, requestBooking, favoriteIds, toggleFavorite }) {
+export default function Browse({ cars, openCar, requestBooking }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
   const [availableOnly, setAvailableOnly] = useState(false);
@@ -69,7 +69,7 @@ export default function Browse({ cars, openCar, requestBooking, favoriteIds, tog
         </aside>
         <section className="browse-results" aria-live="polite">
           <p className="result-count">Showing <strong>{filteredCars.length}</strong> of {cars.length} vehicles</p>
-          {filteredCars.length > 0 ? <div className="browse-grid">{filteredCars.map((car) => <VehicleCard key={car.id} car={car} onBook={requestBooking} onDetails={openCar} saved={favoriteIds.includes(car.id)} onSave={toggleFavorite} />)}</div> : <div className="empty-state"><strong>No vehicles found</strong><p>Try changing your search or filters.</p></div>}
+          {filteredCars.length > 0 ? <div className="browse-grid">{filteredCars.map((car) => <VehicleCard key={car.id} car={car} onBook={requestBooking} onDetails={openCar} />)}</div> : <div className="empty-state"><strong>No vehicles found</strong><p>Try changing your search or filters.</p></div>}
         </section>
       </div>
     </div>

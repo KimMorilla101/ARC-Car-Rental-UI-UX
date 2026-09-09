@@ -11,7 +11,6 @@ export default function Profile({ theme, setTheme, go, logout, trustScore }) {
       <div className="settings-layout">
         <aside className="settings-nav">
           <button className="active">Profile information</button>
-          <button>Notifications</button>
           <button>Privacy & security</button>
           <button onClick={() => go("faq")}>Terms & Conditions</button>
           <button onClick={logout}>Log out</button>

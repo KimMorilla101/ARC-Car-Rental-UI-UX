@@ -2,6 +2,13 @@ import AppPromo from "../../components/AppPromo/AppPromo";
 import rav4Image from "../../assets/cars/rav4.png";
 import civicImage from "../../assets/cars/civic.png";
 import everestImage from "../../assets/cars/everest.png";
+import {
+  ChevronDown,
+  Search,
+  CalendarDays,
+  Clock3,
+  MapPin,
+} from "lucide-react";
 import "./Home.css";
 
 const featuredCars = [
@@ -31,126 +38,243 @@ const featuredCars = [
 export default function Home({ go, requestBooking }) {
   return (
     <>
+      {/* =========================================
+          HERO SECTION
+      ========================================= */}
       <section className="hero-section home-page">
         <div className="hero-copy">
           <p className="eyebrow">THE ROAD IS YOURS</p>
+
           <h1>
             Your journey starts
             <br />
             <em>with the right car.</em>
           </h1>
+
           <p className="hero-text">
             Premium cars, simple booking, and the freedom to make every trip
             yours.
           </p>
+
           <div className="hero-actions">
-            <button className="button" onClick={() => go("browse")}>
+            <button
+              className="button"
+              type="button"
+              onClick={() => go("browse")}
+            >
               Browse Cars <span>→</span>
             </button>
-            <button className="button secondary" onClick={() => go("perfect")}>
+
+            <button
+              className="button secondary"
+              type="button"
+              onClick={() => go("perfect")}
+            >
               Find My Perfect Car
             </button>
           </div>
         </div>
+
+        {/* HERO IMAGE */}
         <div className="hero-visual">
           <div className="hero-caption">Built for the open road ↗</div>
         </div>
+
+        {/* =========================================
+            SEARCH PANEL
+        ========================================= */}
         <form
           className="search-panel"
+          noValidate
           onSubmit={(event) => {
             event.preventDefault();
             go("browse");
           }}
         >
-          <div className="field location-field">
-            <span className="field-icon">⌖</span>
-            <div>
-              <label>Pick-up location</label>
-              <input required defaultValue="Manila, Philippines" />
+          {/* =======================================
+              WHERE
+          ======================================= */}
+          <div className="search-field search-location">
+            <label htmlFor="pickup-location">
+              <MapPin aria-hidden="true" />
+              Where
+            </label>
+
+            <input
+              id="pickup-location"
+              type="text"
+              placeholder="Airport, hotel, address, city"
+              required
+            />
+          </div>
+
+          {/* =======================================
+              FROM
+          ======================================= */}
+          <div className="search-field search-period">
+            <span className="search-label">
+              <CalendarDays aria-hidden="true" />
+              From
+            </span>
+
+            <div className="search-period-controls">
+              {/* DATE */}
+              <label className="search-select date-select">
+                <span className="sr-only">Pick-up date</span>
+
+                <input
+                  type="date"
+                  required
+                  aria-label="Pick-up date"
+                  min="2026-09-09"
+                />
+
+                <CalendarDays aria-hidden="true" />
+              </label>
+
+              {/* TIME */}
+              <label className="search-select time-select">
+                <span className="sr-only">Pick-up time</span>
+
+                <input
+                  type="time"
+                  required
+                  aria-label="Pick-up time"
+                />
+
+                <Clock3 aria-hidden="true" />
+              </label>
             </div>
           </div>
-          <div className="field">
-            <span className="field-icon">▣</span>
-            <div>
-              <label>Pick-up</label>
-              <input
-                type="datetime-local"
-                defaultValue="2026-09-04T09:00"
-                required
-              />
+
+          {/* =======================================
+              UNTIL
+          ======================================= */}
+          <div className="search-field search-period">
+            <span className="search-label">
+              <CalendarDays aria-hidden="true" />
+              Until
+            </span>
+
+            <div className="search-period-controls">
+              {/* DATE */}
+              <label className="search-select date-select">
+                <span className="sr-only">Return date</span>
+
+                <input
+                  type="date"
+                  required
+                  aria-label="Return date"
+                  min="2026-09-09"
+                />
+
+                <CalendarDays aria-hidden="true" />
+              </label>
+
+              {/* TIME */}
+              <label className="search-select time-select">
+                <span className="sr-only">Return time</span>
+
+                <input
+                  type="time"
+                  required
+                  aria-label="Return time"
+                />
+
+                <Clock3 aria-hidden="true" />
+              </label>
             </div>
           </div>
-          <div className="field">
-            <span className="field-icon">◷</span>
-            <div>
-              <label>Return</label>
-              <input
-                type="datetime-local"
-                defaultValue="2026-09-07T09:00"
-                required
-              />
-            </div>
-          </div>
-          <div className="field passengers">
-            <span className="field-icon">♙</span>
-            <div>
-              <label>Passengers</label>
-              <select defaultValue="2">
-                <option value="2">2 passengers</option>
-                <option value="4">4 passengers</option>
-                <option value="7">7 passengers</option>
-              </select>
-            </div>
-          </div>
-          <button className="primary-button" type="submit">
-            Browse Cars <span>→</span>
+
+          {/* =======================================
+              DESKTOP SEARCH BUTTON
+          ======================================= */}
+          <button
+            className="search-submit"
+            type="submit"
+            aria-label="Browse cars"
+          >
+            <Search aria-hidden="true" />
+          </button>
+
+          {/* =======================================
+              COMPACT SEARCH
+              Mobile / smaller screens
+          ======================================= */}
+          <label className="compact-search">
+            <Search aria-hidden="true" />
+
+            <input
+              type="text"
+              aria-label="Search cars"
+              placeholder="Search cars"
+            />
+          </label>
+
+          <button
+            className="compact-search-submit"
+            type="submit"
+            aria-label="Browse cars"
+          >
+            <Search aria-hidden="true" />
           </button>
         </form>
       </section>
+
+      {/* =========================================
+          FEATURED VEHICLES
+      ========================================= */}
       <section className="section-block">
         <div className="section-heading">
           <div>
             <p className="eyebrow">OUR COLLECTION</p>
             <h2>Featured vehicles</h2>
           </div>
-          <button className="text-link" onClick={() => go("browse")}>
+
+          <button
+            className="text-link"
+            type="button"
+            onClick={() => go("browse")}
+          >
             View all cars ↗
           </button>
         </div>
+
         <div className="fleet-grid">
           {featuredCars.map((car) => (
             <article className="vehicle-card" key={car.name}>
               <div className="vehicle-image">
                 <img src={car.image} alt={car.name} />
+
                 <span className="availability">
                   <i /> Available
                 </span>
+
                 <span className="vehicle-tag">{car.tag}</span>
               </div>
+
               <div className="vehicle-info">
                 <div className="vehicle-title">
                   <div>
                     <p>{car.type}</p>
                     <h3>{car.name}</h3>
                   </div>
-                  <button
-                    aria-label={`Book ${car.name}`}
-                    onClick={() => requestBooking(car)}
-                  >
-                    ♡
-                  </button>
                 </div>
+
                 <div className="specs">
                   <span>♙ 5 seats</span>
                   <span>⚙ Automatic</span>
                 </div>
+
                 <div className="price">
                   <div>
                     <strong>{car.price}</strong>
                     <small> / day</small>
                   </div>
+
                   <button
                     className="text-link"
+                    type="button"
                     onClick={() => requestBooking(car)}
                   >
                     Book now →
@@ -161,6 +285,7 @@ export default function Home({ go, requestBooking }) {
           ))}
         </div>
       </section>
+
       <AppPromo />
     </>
   );

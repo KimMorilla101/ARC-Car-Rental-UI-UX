@@ -30,7 +30,7 @@ export default function Bookings({ setNotice, activeRental, rentalIsActive, exte
       {cancelled ? (
         <div className="empty-state">
           <strong>Booking cancelled</strong>
-          <p>Your booking has been cancelled and your notifications updated.</p>
+          <p>Your booking has been cancelled.</p>
         </div>
       ) : (
         <>

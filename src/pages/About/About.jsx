@@ -19,7 +19,7 @@ export default function About({ go }) {
       <div className="info-copy">
         <h2>Car rental, with more care.</h2>
         <p>
-          ARC Car Rental makes it easier to get where you’re going with a
+          ARC Ride Car Rental makes it easier to get where you’re going with a
           well-kept fleet, thoughtful support, and a booking experience that
           respects your time.
         </p>
