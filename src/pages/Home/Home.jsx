@@ -1,12 +1,11 @@
+import { useMemo } from "react";
 import AppPromo from "../../components/AppPromo/AppPromo";
 import rav4Image from "../../assets/cars/rav4.png";
 import civicImage from "../../assets/cars/civic.png";
 import everestImage from "../../assets/cars/everest.png";
 import {
-  ChevronDown,
   Search,
   CalendarDays,
-  Clock3,
   MapPin,
 } from "lucide-react";
 import "./Home.css";
@@ -36,6 +35,22 @@ const featuredCars = [
 ];
 
 export default function Home({ go, requestBooking }) {
+  /*
+    Automatically gets today's date.
+
+    Example:
+    2026-09-09
+  */
+  const today = useMemo(() => {
+    const date = new Date();
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  }, []);
+
   return (
     <>
       {/* =========================================
@@ -43,17 +58,16 @@ export default function Home({ go, requestBooking }) {
       ========================================= */}
       <section className="hero-section home-page">
         <div className="hero-copy">
-          <p className="eyebrow">THE ROAD IS YOURS</p>
+          <p className="eyebrow">WELCOME TO DRIVEEASE</p>
 
           <h1>
-            Your journey starts
+            Find Your
             <br />
-            <em>with the right car.</em>
+            <em>Perfect Car.</em>
           </h1>
 
           <p className="hero-text">
-            Premium cars, simple booking, and the freedom to make every trip
-            yours.
+            Browse 50+ premium vehicles. Smart recommendations matched to your trip type, budget, and passenger count.
           </p>
 
           <div className="hero-actions">
@@ -75,7 +89,9 @@ export default function Home({ go, requestBooking }) {
           </div>
         </div>
 
-        {/* HERO IMAGE */}
+        {/* =========================================
+            HERO IMAGE
+        ========================================= */}
         <div className="hero-visual">
           <div className="hero-caption">Built for the open road ↗</div>
         </div>
@@ -118,7 +134,7 @@ export default function Home({ go, requestBooking }) {
             </span>
 
             <div className="search-period-controls">
-              {/* DATE */}
+              {/* REAL DATE PICKER */}
               <label className="search-select date-select">
                 <span className="sr-only">Pick-up date</span>
 
@@ -126,13 +142,11 @@ export default function Home({ go, requestBooking }) {
                   type="date"
                   required
                   aria-label="Pick-up date"
-                  min="2026-09-09"
+                  min={today}
                 />
-
-                <CalendarDays aria-hidden="true" />
               </label>
 
-              {/* TIME */}
+              {/* REAL TIME PICKER */}
               <label className="search-select time-select">
                 <span className="sr-only">Pick-up time</span>
 
@@ -141,8 +155,6 @@ export default function Home({ go, requestBooking }) {
                   required
                   aria-label="Pick-up time"
                 />
-
-                <Clock3 aria-hidden="true" />
               </label>
             </div>
           </div>
@@ -157,7 +169,7 @@ export default function Home({ go, requestBooking }) {
             </span>
 
             <div className="search-period-controls">
-              {/* DATE */}
+              {/* REAL DATE PICKER */}
               <label className="search-select date-select">
                 <span className="sr-only">Return date</span>
 
@@ -165,13 +177,11 @@ export default function Home({ go, requestBooking }) {
                   type="date"
                   required
                   aria-label="Return date"
-                  min="2026-09-09"
+                  min={today}
                 />
-
-                <CalendarDays aria-hidden="true" />
               </label>
 
-              {/* TIME */}
+              {/* REAL TIME PICKER */}
               <label className="search-select time-select">
                 <span className="sr-only">Return time</span>
 
@@ -180,8 +190,6 @@ export default function Home({ go, requestBooking }) {
                   required
                   aria-label="Return time"
                 />
-
-                <Clock3 aria-hidden="true" />
               </label>
             </div>
           </div>
@@ -250,7 +258,9 @@ export default function Home({ go, requestBooking }) {
                   <i /> Available
                 </span>
 
-                <span className="vehicle-tag">{car.tag}</span>
+                <span className="vehicle-tag">
+                  {car.tag}
+                </span>
               </div>
 
               <div className="vehicle-info">

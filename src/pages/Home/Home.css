@@ -23,6 +23,7 @@
 
 .home-page .hero-copy {
   position: relative;
+
   z-index: 5;
 
   max-width: 720px;
@@ -31,10 +32,12 @@
   padding-bottom: 155px;
 }
 
+
 /*
-   This creates a soft readable area behind
-   the text without making a big white box.
+   Soft readable area behind the hero text.
+   It does NOT create a large white box.
 */
+
 .home-page .hero-copy::before {
   content: "";
 
@@ -92,10 +95,6 @@
 
   letter-spacing: -0.2px;
 
-  /*
-     Keeps text readable when the car image
-     is behind it.
-  */
   text-shadow:
     0 1px 2px rgba(255, 255, 255, 0.9);
 }
@@ -313,7 +312,7 @@
     minmax(0, 1fr)
     minmax(0, 1fr);
 
-  gap: 14px;
+  gap: 10px;
 
   align-items: center;
 }
@@ -326,14 +325,16 @@
 .home-page .search-select {
   position: relative;
 
-  display: block;
+  display: flex;
+
+  align-items: center;
 
   min-width: 0;
 }
 
 
 /* =========================================
-   NATIVE CALENDAR INPUT
+   REAL DATE / TIME INPUT
 ========================================= */
 
 .home-page .search-select input {
@@ -341,72 +342,123 @@
 
   min-width: 0;
 
-  height: 27px;
+  height: 34px;
 
-  padding: 0 23px 0 0;
+  padding: 0 8px;
 
-  border: 0;
+  border: 1px solid #e1e4e8;
 
-  outline: 0;
+  border-radius: 9px;
 
-  color: #3e4045;
+  outline: none;
 
-  background: transparent;
+  color: #26364e;
+
+  background: #ffffff;
 
   font-family: "DM Sans", sans-serif;
 
   font-size: 13px;
 
-  font-weight: 400;
+  font-weight: 500;
 
   cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 
-/* Calendar placeholder */
+/* =========================================
+   HOVER
+========================================= */
 
-.home-page .search-select input::-webkit-datetime-edit {
-  color: #3e4045;
+.home-page .search-select input:hover {
+  border-color: #b8c0cc;
 }
 
-.home-page .search-select input::-webkit-datetime-edit-text {
-  color: #9a9ca1;
+
+/* =========================================
+   FOCUS
+========================================= */
+
+.home-page .search-select input:focus {
+  border-color: #5837f4;
+
+  box-shadow:
+    0 0 0 3px rgba(88, 55, 244, 0.10);
 }
+
+
+/* =========================================
+   REAL CALENDAR ICON
+========================================= */
+
+/*
+   IMPORTANT:
+   We are NOT hiding the browser's native
+   calendar icon anymore.
+*/
 
 .home-page .search-select input::-webkit-calendar-picker-indicator {
-  position: absolute;
+  opacity: 1;
 
-  right: 20px;
-
-  width: 0;
-
-  height: 0;
-
-  opacity: 0;
+  width: 18px;
+  height: 18px;
 
   cursor: pointer;
 }
 
 
 /* =========================================
-   CALENDAR / CLOCK ICON
+   REAL TIME PICKER ICON
 ========================================= */
 
-.home-page .search-select > svg {
-  position: absolute;
+.home-page .time-select input::-webkit-calendar-picker-indicator {
+  opacity: 1;
 
-  top: 50%;
+  width: 18px;
+  height: 18px;
 
-  right: 0;
+  cursor: pointer;
+}
 
-  width: 15px;
-  height: 15px;
 
-  color: #182f50;
+/* =========================================
+   DATE/TIME TEXT
+========================================= */
 
-  pointer-events: none;
+.home-page .search-select input::-webkit-datetime-edit {
+  color: #26364e;
+}
 
-  transform: translateY(-50%);
+.home-page .search-select input::-webkit-datetime-edit-text {
+  color: #8b929d;
+}
+
+.home-page .search-select input::-webkit-datetime-edit-month-field,
+.home-page .search-select input::-webkit-datetime-edit-day-field,
+.home-page .search-select input::-webkit-datetime-edit-year-field,
+.home-page .search-select input::-webkit-datetime-edit-hour-field,
+.home-page .search-select input::-webkit-datetime-edit-minute-field,
+.home-page .search-select input::-webkit-datetime-edit-ampm-field {
+  color: #26364e;
+}
+
+
+/* =========================================
+   KEEP NATIVE DATE/TIME PICKER
+========================================= */
+
+.home-page .date-select input {
+  appearance: auto;
+  -webkit-appearance: auto;
+}
+
+.home-page .time-select input {
+  appearance: auto;
+  -webkit-appearance: auto;
 }
 
 
@@ -494,7 +546,6 @@
 
 /* =========================================
    TABLET
-   Full search becomes compact
 ========================================= */
 
 @media (max-width: 800px) {
@@ -517,9 +568,11 @@
 
   .home-page .hero-copy::before {
     top: 20px;
+
     left: -40px;
 
     width: 650px;
+
     height: 360px;
   }
 
@@ -575,6 +628,7 @@
 
   .home-page .search-panel {
     left: 20px;
+
     right: 20px;
 
     bottom: 20px;
@@ -626,6 +680,7 @@
 
   .home-page .compact-search svg {
     width: 19px;
+
     height: 19px;
 
     flex: 0 0 auto;
@@ -670,6 +725,7 @@
     place-items: center;
 
     width: 48px;
+
     height: 48px;
 
     border: 0;
@@ -695,6 +751,7 @@
 
   .home-page .compact-search-submit svg {
     width: 21px;
+
     height: 21px;
   }
 }
@@ -718,9 +775,11 @@
 
   .home-page .hero-copy::before {
     top: 15px;
+
     left: -50px;
 
     width: 580px;
+
     height: 350px;
   }
 
@@ -766,6 +825,7 @@
 
   .home-page .search-panel {
     left: 14px;
+
     right: 14px;
 
     bottom: 14px;
@@ -789,6 +849,7 @@
 
   .home-page .compact-search-submit {
     width: 46px;
+
     height: 46px;
 
     border-radius: 11px;
@@ -796,6 +857,7 @@
 
   .home-page .compact-search-submit svg {
     width: 20px;
+
     height: 20px;
   }
 }
