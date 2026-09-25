@@ -5,6 +5,11 @@ html {
   font-family: "DM Sans", sans-serif;
   color-scheme: light;
   scroll-behavior: smooth;
+
+  /* Hero overlay - light mode default */
+  --hero-overlay-rgb: 255, 255, 255;
+  --hero-overlay-op1: 0.55;
+  --hero-overlay-op2: 0.35;
 }
 html,
 body,
@@ -14,10 +19,20 @@ body,
 }
 html[data-theme="dark"] {
   color-scheme: dark;
+
+  /* Hero overlay - explicit dark mode */
+  --hero-overlay-rgb: 9, 20, 34;
+  --hero-overlay-op1: 0.85;
+  --hero-overlay-op2: 0.6;
 }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) {
     color-scheme: dark;
+
+    /* Hero overlay - system dark mode */
+    --hero-overlay-rgb: 9, 20, 34;
+    --hero-overlay-op1: 0.85;
+    --hero-overlay-op2: 0.6;
   }
 }
 body {

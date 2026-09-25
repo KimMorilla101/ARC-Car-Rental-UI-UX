@@ -19,6 +19,10 @@
   background: var(--navy);
 
   box-sizing: border-box;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 
@@ -40,6 +44,8 @@
   font-size: 15px;
 
   line-height: 1.65;
+
+  transition: color 0.3s ease;
 }
 
 .app-promo h2 {
@@ -52,12 +58,30 @@
   line-height: 1.05;
 
   letter-spacing: -1.8px;
+
+  transition: color 0.3s ease;
 }
 
 .app-promo h2 em {
   color: #ff8a70;
 
   font-style: normal;
+}
+
+
+/* =========================
+   EYEBROW
+   ========================= */
+
+.app-promo .eyebrow {
+  color: #ff8a70;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  transition: color 0.3s ease;
 }
 
 
@@ -87,6 +111,11 @@
   font-size: 12px;
 
   cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 
@@ -181,6 +210,8 @@
   font-size: 64px;
 
   text-align: center;
+
+  transition: color 0.3s ease;
 }
 
 .qr-code small {
@@ -189,6 +220,104 @@
   font-size: 10px;
 
   white-space: nowrap;
+
+  transition: color 0.3s ease;
+}
+
+
+/* ==================================================
+   DARK MODE
+   ================================================== */
+
+/*
+   Your project uses:
+   html[data-theme="dark"]
+
+   In your screenshot, the dark-mode App Promo
+   background becomes light/pale.
+
+   Therefore the text needs to become dark.
+*/
+
+html[data-theme="dark"] .app-promo {
+  color: #172b4d;
+}
+
+html[data-theme="dark"] .app-promo h2 {
+  color: #172b4d;
+}
+
+html[data-theme="dark"] .app-promo-copy > p:not(.eyebrow) {
+  color: #52627a;
+}
+
+html[data-theme="dark"] .app-promo .eyebrow {
+  color: #ff8066;
+}
+
+html[data-theme="dark"] .store-buttons button {
+  color: #172b4d;
+
+  border-color: rgba(23, 43, 77, 0.35);
+
+  background: rgba(23, 43, 77, 0.06);
+}
+
+html[data-theme="dark"] .store-buttons button:hover {
+  background: rgba(23, 43, 77, 0.12);
+}
+
+html[data-theme="dark"] .qr-code {
+  color: #172b4d;
+}
+
+html[data-theme="dark"] .qr-code small {
+  color: #52627a;
+}
+
+
+/* ==================================================
+   SYSTEM DARK MODE
+   ================================================== */
+
+/*
+   Only apply this when the user has NOT explicitly
+   selected light mode or dark mode.
+*/
+
+@media (prefers-color-scheme: dark) {
+
+  html:not([data-theme="light"]):not([data-theme="dark"]) .app-promo {
+    color: #172b4d;
+  }
+
+  html:not([data-theme="light"]):not([data-theme="dark"]) .app-promo h2 {
+    color: #172b4d;
+  }
+
+  html:not([data-theme="light"]):not([data-theme="dark"])
+  .app-promo-copy > p:not(.eyebrow) {
+    color: #52627a;
+  }
+
+  html:not([data-theme="light"]):not([data-theme="dark"])
+  .store-buttons button {
+    color: #172b4d;
+
+    border-color: rgba(23, 43, 77, 0.35);
+
+    background: rgba(23, 43, 77, 0.06);
+  }
+
+  html:not([data-theme="light"]):not([data-theme="dark"])
+  .qr-code {
+    color: #172b4d;
+  }
+
+  html:not([data-theme="light"]):not([data-theme="dark"])
+  .qr-code small {
+    color: #52627a;
+  }
 }
 
 
@@ -200,10 +329,13 @@
 
   .app-promo {
     grid-template-columns: auto auto;
+
     grid-template-rows: auto auto;
 
     justify-content: center;
+
     column-gap: 70px;
+
     row-gap: 25px;
 
     align-items: center;
@@ -216,11 +348,13 @@
 
   .app-promo-copy {
     grid-column: 1 / -1;
+
     grid-row: 1;
 
     width: 100%;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -230,6 +364,7 @@
 
   .app-promo-copy > p:not(.eyebrow) {
     margin-left: auto;
+
     margin-right: auto;
   }
 
@@ -245,6 +380,7 @@
 
   .phone-mockup {
     grid-column: 1;
+
     grid-row: 2;
 
     justify-self: end;
@@ -257,6 +393,7 @@
 
   .qr-code {
     grid-column: 2;
+
     grid-row: 2;
 
     justify-self: start;
@@ -264,6 +401,12 @@
     margin: 10px 0 0;
   }
 }
+
+
+/* ==================================================
+   MOBILE
+   ================================================== */
+
 @media (max-width: 700px) {
 
   .app-promo {

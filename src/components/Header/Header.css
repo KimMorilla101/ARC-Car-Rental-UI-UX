@@ -1,9 +1,15 @@
 .header-component {
   display: contents;
 }
-.site-header {
-  position: relative;
+
+.header-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
 }
+
 .theme-toggle svg,
 .menu-toggle svg { display: block; }
 .brand-car-icon { width: 18px; height: 18px; color: #fff; }

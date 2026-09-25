@@ -3,11 +3,13 @@ import AppPromo from "../../components/AppPromo/AppPromo";
 import rav4Image from "../../assets/cars/rav4.png";
 import civicImage from "../../assets/cars/civic.png";
 import everestImage from "../../assets/cars/everest.png";
+
 import {
   Search,
   CalendarDays,
   MapPin,
 } from "lucide-react";
+
 import "./Home.css";
 
 const featuredCars = [
@@ -35,12 +37,6 @@ const featuredCars = [
 ];
 
 export default function Home({ go, requestBooking }) {
-  /*
-    Automatically gets today's date.
-
-    Example:
-    2026-09-09
-  */
   const today = useMemo(() => {
     const date = new Date();
 
@@ -57,8 +53,15 @@ export default function Home({ go, requestBooking }) {
           HERO SECTION
       ========================================= */}
       <section className="hero-section home-page">
+
+        {/* =======================================
+            HERO COPY
+        ======================================= */}
         <div className="hero-copy">
-          <p className="eyebrow">WELCOME TO DRIVEEASE</p>
+
+          <p className="eyebrow">
+            WELCOME TO ARC RIDE
+          </p>
 
           <h1>
             Find Your
@@ -67,16 +70,19 @@ export default function Home({ go, requestBooking }) {
           </h1>
 
           <p className="hero-text">
-            Browse 50+ premium vehicles. Smart recommendations matched to your trip type, budget, and passenger count.
+            Browse 50+ premium vehicles. Smart recommendations
+            matched to your trip type, budget, and passenger count.
           </p>
 
           <div className="hero-actions">
+
             <button
               className="button"
               type="button"
               onClick={() => go("browse")}
             >
-              Browse Cars <span>→</span>
+              Browse Cars
+              <span>→</span>
             </button>
 
             <button
@@ -86,15 +92,23 @@ export default function Home({ go, requestBooking }) {
             >
               Find My Perfect Car
             </button>
+
           </div>
         </div>
+
 
         {/* =========================================
             HERO IMAGE
         ========================================= */}
-        <div className="hero-visual">
-          <div className="hero-caption">Built for the open road ↗</div>
+        <div
+          className="hero-visual"
+          aria-label="Premium rental car"
+        >
+          <div className="hero-caption">
+            Built for the open road ↗
+          </div>
         </div>
+
 
         {/* =========================================
             SEARCH PANEL
@@ -107,10 +121,12 @@ export default function Home({ go, requestBooking }) {
             go("browse");
           }}
         >
+
           {/* =======================================
               WHERE
           ======================================= */}
           <div className="search-field search-location">
+
             <label htmlFor="pickup-location">
               <MapPin aria-hidden="true" />
               Where
@@ -122,21 +138,26 @@ export default function Home({ go, requestBooking }) {
               placeholder="Airport, hotel, address, city"
               required
             />
+
           </div>
+
 
           {/* =======================================
               FROM
           ======================================= */}
           <div className="search-field search-period">
+
             <span className="search-label">
               <CalendarDays aria-hidden="true" />
               From
             </span>
 
             <div className="search-period-controls">
-              {/* REAL DATE PICKER */}
+
               <label className="search-select date-select">
-                <span className="sr-only">Pick-up date</span>
+                <span className="sr-only">
+                  Pick-up date
+                </span>
 
                 <input
                   type="date"
@@ -146,9 +167,10 @@ export default function Home({ go, requestBooking }) {
                 />
               </label>
 
-              {/* REAL TIME PICKER */}
               <label className="search-select time-select">
-                <span className="sr-only">Pick-up time</span>
+                <span className="sr-only">
+                  Pick-up time
+                </span>
 
                 <input
                   type="time"
@@ -156,22 +178,27 @@ export default function Home({ go, requestBooking }) {
                   aria-label="Pick-up time"
                 />
               </label>
+
             </div>
           </div>
+
 
           {/* =======================================
               UNTIL
           ======================================= */}
           <div className="search-field search-period">
+
             <span className="search-label">
               <CalendarDays aria-hidden="true" />
               Until
             </span>
 
             <div className="search-period-controls">
-              {/* REAL DATE PICKER */}
+
               <label className="search-select date-select">
-                <span className="sr-only">Return date</span>
+                <span className="sr-only">
+                  Return date
+                </span>
 
                 <input
                   type="date"
@@ -181,9 +208,10 @@ export default function Home({ go, requestBooking }) {
                 />
               </label>
 
-              {/* REAL TIME PICKER */}
               <label className="search-select time-select">
-                <span className="sr-only">Return time</span>
+                <span className="sr-only">
+                  Return time
+                </span>
 
                 <input
                   type="time"
@@ -191,8 +219,10 @@ export default function Home({ go, requestBooking }) {
                   aria-label="Return time"
                 />
               </label>
+
             </div>
           </div>
+
 
           {/* =======================================
               DESKTOP SEARCH BUTTON
@@ -205,11 +235,12 @@ export default function Home({ go, requestBooking }) {
             <Search aria-hidden="true" />
           </button>
 
+
           {/* =======================================
-              COMPACT SEARCH
-              Mobile / smaller screens
+              MOBILE SEARCH
           ======================================= */}
           <label className="compact-search">
+
             <Search aria-hidden="true" />
 
             <input
@@ -217,6 +248,7 @@ export default function Home({ go, requestBooking }) {
               aria-label="Search cars"
               placeholder="Search cars"
             />
+
           </label>
 
           <button
@@ -226,17 +258,27 @@ export default function Home({ go, requestBooking }) {
           >
             <Search aria-hidden="true" />
           </button>
+
         </form>
+
       </section>
+
 
       {/* =========================================
           FEATURED VEHICLES
       ========================================= */}
       <section className="section-block">
+
         <div className="section-heading">
+
           <div>
-            <p className="eyebrow">OUR COLLECTION</p>
-            <h2>Featured vehicles</h2>
+            <p className="eyebrow">
+              OUR COLLECTION
+            </p>
+
+            <h2>
+              Featured vehicles
+            </h2>
           </div>
 
           <button
@@ -246,40 +288,82 @@ export default function Home({ go, requestBooking }) {
           >
             View all cars ↗
           </button>
+
         </div>
 
+
         <div className="fleet-grid">
+
           {featuredCars.map((car) => (
-            <article className="vehicle-card" key={car.name}>
+
+            <article
+              className="vehicle-card"
+              key={car.name}
+            >
+
               <div className="vehicle-image">
-                <img src={car.image} alt={car.name} />
+
+                <img
+                  src={car.image}
+                  alt={car.name}
+                />
 
                 <span className="availability">
-                  <i /> Available
+                  <i />
+                  Available
                 </span>
 
                 <span className="vehicle-tag">
                   {car.tag}
                 </span>
+
               </div>
 
+
               <div className="vehicle-info">
+
                 <div className="vehicle-title">
+
                   <div>
-                    <p>{car.type}</p>
-                    <h3>{car.name}</h3>
+
+                    <p>
+                      {car.type}
+                    </p>
+
+                    <h3>
+                      {car.name}
+                    </h3>
+
                   </div>
+
                 </div>
+
 
                 <div className="specs">
-                  <span>♙ 5 seats</span>
-                  <span>⚙ Automatic</span>
+
+                  <span>
+                    ♙ 5 seats
+                  </span>
+
+                  <span>
+                    ⚙ Automatic
+                  </span>
+
                 </div>
 
+
                 <div className="price">
+
                   <div>
-                    <strong>{car.price}</strong>
-                    <small> / day</small>
+
+                    <strong>
+                      {car.price}
+                    </strong>
+
+                    <small>
+                      {" "} / day
+                    </small>
+
                   </div>
 
                   <button
@@ -289,14 +373,25 @@ export default function Home({ go, requestBooking }) {
                   >
                     Book now →
                   </button>
+
                 </div>
+
               </div>
+
             </article>
+
           ))}
+
         </div>
+
       </section>
 
+
+      {/* =========================================
+          APP PROMO
+      ========================================= */}
       <AppPromo />
+
     </>
   );
 }

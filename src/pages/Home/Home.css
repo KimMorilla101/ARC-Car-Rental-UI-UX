@@ -1,41 +1,55 @@
-/* =========================================
+/* ==================================================
    HOME PAGE
-========================================= */
+================================================== */
 
 .home-page {
-  min-height: 100%;
+  position: relative;
+  width: 100%;
 }
+
+
+/* ==================================================
+   HERO SECTION
+================================================== */
 
 .home-page.hero-section {
   position: relative;
 
-  min-height: 610px;
-
-  align-items: flex-start;
+  /*
+    SHORTER HERO
+    This removes the huge empty gap.
+  */
+  min-height: 520px;
+  height: 520px;
 
   overflow: hidden;
+
+  align-items: flex-start;
 }
 
 
-/* =========================================
+/* ==================================================
    HERO COPY
-========================================= */
+================================================== */
 
 .home-page .hero-copy {
   position: relative;
 
   z-index: 5;
 
-  max-width: 720px;
+  width: 52%;
+  max-width: 680px;
 
-  padding-top: 72px;
-  padding-bottom: 155px;
+  padding-top: 55px;
+  padding-bottom: 30px;
 }
 
 
 /*
-   Soft readable area behind the hero text.
-   It does NOT create a large white box.
+   READABLE TEXT AREA
+
+   This changes automatically with
+   light / dark mode.
 */
 
 .home-page .hero-copy::before {
@@ -45,64 +59,167 @@
 
   z-index: -1;
 
-  top: 35px;
-  left: -45px;
+  top: 20px;
+  left: -60px;
 
-  width: 720px;
-  height: 370px;
+  width: 650px;
+  height: 310px;
 
   background:
     radial-gradient(
       ellipse at center,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(255, 255, 255, 0.72) 45%,
-      rgba(255, 255, 255, 0) 78%
+      rgba(
+        var(--hero-overlay-rgb),
+        var(--hero-overlay-op1)
+      ) 0%,
+
+      rgba(
+        var(--hero-overlay-rgb),
+        var(--hero-overlay-op2)
+      ) 45%,
+
+      rgba(
+        var(--hero-overlay-rgb),
+        0
+      ) 78%
     );
 
   pointer-events: none;
 }
 
 
-/* =========================================
-   HERO TEXT
-========================================= */
+/* ==================================================
+   HERO EYEBROW
+================================================== */
+
+.home-page .hero-copy .eyebrow {
+  margin: 0 0 18px;
+
+  color: #1768ff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2.4px;
+
+  line-height: 1.2;
+}
+
+
+/* ==================================================
+   HERO TITLE
+================================================== */
 
 .home-page .hero-copy h1 {
   position: relative;
 
   z-index: 2;
 
-  max-width: 700px;
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #172b4d;
+
+  font-size: clamp(50px, 5vw, 70px);
+
+  line-height: 0.92;
+
+  letter-spacing: -3px;
 }
+
+
+/*
+   BLUE SECOND LINE
+*/
+
+.home-page .hero-copy h1 em {
+  color: #2468f2;
+
+  font-style: normal;
+}
+
+
+/* ==================================================
+   DARK MODE HERO TITLE
+================================================== */
+
+html[data-theme="dark"] .home-page .hero-copy h1 {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .home-page .hero-copy h1 em {
+  color: #4c82ff;
+}
+
+
+/* ==================================================
+   SYSTEM DARK MODE
+================================================== */
+
+@media (prefers-color-scheme: dark) {
+
+  html:not([data-theme="light"])
+  .home-page .hero-copy h1 {
+    color: #ffffff;
+  }
+
+  html:not([data-theme="light"])
+  .home-page .hero-copy h1 em {
+    color: #4c82ff;
+  }
+}
+
+
+/* ==================================================
+   HERO DESCRIPTION
+================================================== */
 
 .home-page .hero-text {
   position: relative;
 
   z-index: 3;
 
-  max-width: 570px;
+  max-width: 550px;
 
   margin: 22px 0 0;
 
-  padding: 5px 12px 7px 0;
+  padding: 0;
 
   color: #526b8d;
 
-  font-size: 20px;
+  font-size: 18px;
+
   font-weight: 500;
 
   line-height: 1.5;
 
-  letter-spacing: -0.2px;
+  letter-spacing: -0.15px;
 
-  text-shadow:
-    0 1px 2px rgba(255, 255, 255, 0.9);
+  text-shadow: none;
 }
 
 
-/* =========================================
+/* ==================================================
+   DARK MODE DESCRIPTION
+================================================== */
+
+html[data-theme="dark"] .home-page .hero-text {
+  color: #b9c8db;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  html:not([data-theme="light"])
+  .home-page .hero-text {
+    color: #b9c8db;
+  }
+}
+
+
+/* ==================================================
    HERO BUTTONS
-========================================= */
+================================================== */
 
 .home-page .hero-actions {
   position: relative;
@@ -115,48 +232,122 @@
 
   flex-wrap: wrap;
 
-  gap: 14px;
+  gap: 12px;
 
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 
-/* =========================================
-   HERO VISUAL
-========================================= */
+/* ==================================================
+   HERO VISUAL / CAR IMAGE
+================================================== */
 
 .home-page .hero-visual {
   position: absolute;
 
   z-index: 1;
+
+  /*
+    SHORT IMAGE AREA
+  */
+
+  top: 0;
+  right: 0;
+
+  width: 48%;
+  height: 410px;
+
+  /*
+    KEEP THE EXISTING BACKGROUND IMAGE
+  */
+
+  background-repeat: no-repeat;
+
+  background-position: center center;
+
+  background-size: cover;
+
+  /*
+    IMPORTANT:
+    REMOVE SHADOW
+  */
+
+  box-shadow: none !important;
+
+  filter: none !important;
+
+  -webkit-filter: none !important;
+
+  isolation: isolate;
 }
 
 
-/* =========================================
-   SEARCH PANEL - DESKTOP
-========================================= */
+/*
+   REMOVE ANY SHADOW / OVERLAY
+   THAT MAY EXIST ON THE IMAGE
+*/
+
+.home-page .hero-visual::before,
+.home-page .hero-visual::after {
+  box-shadow: none !important;
+
+  filter: none !important;
+
+  opacity: 1;
+}
+
+
+/* ==================================================
+   HERO IMAGE CAPTION
+================================================== */
+
+.home-page .hero-caption {
+  position: absolute;
+
+  right: 28px;
+  bottom: 20px;
+
+  z-index: 3;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  text-shadow: none;
+}
+
+
+/* ==================================================
+   SEARCH PANEL
+================================================== */
 
 .home-page .search-panel {
   position: absolute;
 
   z-index: 20;
 
-  left: 20px;
-  right: 20px;
+  /*
+    PUT SEARCH CLOSE TO HERO CONTENT
+  */
 
-  bottom: 24px;
+  left: 24px;
+  right: 24px;
+
+  bottom: 20px;
 
   display: grid;
 
   grid-template-columns:
-    minmax(180px, 1.05fr)
+    minmax(190px, 1.05fr)
     minmax(230px, 1.35fr)
     minmax(230px, 1.35fr)
-    62px;
+    64px;
 
   align-items: stretch;
 
-  min-height: 78px;
+  min-height: 82px;
 
   padding: 8px;
 
@@ -166,21 +357,56 @@
 
   background: rgba(255, 255, 255, 0.98);
 
+  /*
+    Only the SEARCH PANEL has a shadow.
+    The CAR IMAGE does NOT.
+  */
+
   box-shadow:
-    0 15px 36px rgba(12, 34, 53, 0.18);
+    0 10px 25px rgba(12, 34, 53, 0.14);
 
   backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
 }
 
 
-/* =========================================
+/* ==================================================
+   DARK MODE SEARCH PANEL
+================================================== */
+
+html[data-theme="dark"] .home-page .search-panel {
+  border-color: rgba(255, 255, 255, 0.12);
+
+  background: rgba(16, 35, 54, 0.96);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+@media (prefers-color-scheme: dark) {
+
+  html:not([data-theme="light"])
+  .home-page .search-panel {
+
+    border-color: rgba(255, 255, 255, 0.12);
+
+    background: rgba(16, 35, 54, 0.96);
+
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.25);
+  }
+}
+
+
+/* ==================================================
    SEARCH FIELD
-========================================= */
+================================================== */
 
 .home-page .search-field {
   min-width: 0;
 
-  min-height: 60px;
+  min-height: 64px;
 
   padding: 8px 16px;
 
@@ -188,9 +414,27 @@
 }
 
 
-/* =========================================
+/* ==================================================
+   DARK MODE FIELD DIVIDER
+================================================== */
+
+html[data-theme="dark"]
+.home-page .search-field {
+  border-right-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+
+  html:not([data-theme="light"])
+  .home-page .search-field {
+    border-right-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+
+/* ==================================================
    WHERE
-========================================= */
+================================================== */
 
 .home-page .search-location {
   display: flex;
@@ -199,6 +443,7 @@
 
   justify-content: center;
 }
+
 
 .home-page .search-location > label {
   display: flex;
@@ -218,6 +463,7 @@
   line-height: 1;
 }
 
+
 .home-page .search-location > label svg {
   width: 15px;
   height: 15px;
@@ -228,9 +474,37 @@
 }
 
 
-/* =========================================
+/* ==================================================
+   DARK MODE WHERE
+================================================== */
+
+html[data-theme="dark"]
+.home-page .search-location > label {
+  color: #dce7f4;
+}
+
+html[data-theme="dark"]
+.home-page .search-location > label svg {
+  color: #72a0ff;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  html:not([data-theme="light"])
+  .home-page .search-location > label {
+    color: #dce7f4;
+  }
+
+  html:not([data-theme="light"])
+  .home-page .search-location > label svg {
+    color: #72a0ff;
+  }
+}
+
+
+/* ==================================================
    LOCATION INPUT
-========================================= */
+================================================== */
 
 .home-page .search-location input {
   width: 100%;
@@ -254,6 +528,7 @@
   line-height: 1.3;
 }
 
+
 .home-page .search-location input::placeholder {
   color: #7a7c81;
 
@@ -261,9 +536,35 @@
 }
 
 
-/* =========================================
+/* DARK */
+
+html[data-theme="dark"]
+.home-page .search-location input {
+  color: #ffffff;
+}
+
+html[data-theme="dark"]
+.home-page .search-location input::placeholder {
+  color: #9fb0c5;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  html:not([data-theme="light"])
+  .home-page .search-location input {
+    color: #ffffff;
+  }
+
+  html:not([data-theme="light"])
+  .home-page .search-location input::placeholder {
+    color: #9fb0c5;
+  }
+}
+
+
+/* ==================================================
    FROM / UNTIL
-========================================= */
+================================================== */
 
 .home-page .search-period {
   display: flex;
@@ -272,6 +573,7 @@
 
   justify-content: center;
 }
+
 
 .home-page .search-label {
   display: flex;
@@ -291,6 +593,7 @@
   line-height: 1;
 }
 
+
 .home-page .search-label svg {
   width: 15px;
   height: 15px;
@@ -301,9 +604,35 @@
 }
 
 
-/* =========================================
+/* DARK */
+
+html[data-theme="dark"]
+.home-page .search-label {
+  color: #dce7f4;
+}
+
+html[data-theme="dark"]
+.home-page .search-label svg {
+  color: #72a0ff;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  html:not([data-theme="light"])
+  .home-page .search-label {
+    color: #dce7f4;
+  }
+
+  html:not([data-theme="light"])
+  .home-page .search-label svg {
+    color: #72a0ff;
+  }
+}
+
+
+/* ==================================================
    DATE + TIME
-========================================= */
+================================================== */
 
 .home-page .search-period-controls {
   display: grid;
@@ -318,9 +647,9 @@
 }
 
 
-/* =========================================
+/* ==================================================
    DATE / TIME FIELD
-========================================= */
+================================================== */
 
 .home-page .search-select {
   position: relative;
@@ -333,16 +662,12 @@
 }
 
 
-/* =========================================
-   REAL DATE / TIME INPUT
-========================================= */
-
 .home-page .search-select input {
   width: 100%;
 
   min-width: 0;
 
-  height: 34px;
+  height: 38px;
 
   padding: 0 8px;
 
@@ -370,18 +695,46 @@
 }
 
 
-/* =========================================
+/* ==================================================
+   DARK MODE DATE / TIME
+================================================== */
+
+html[data-theme="dark"]
+.home-page .search-select input {
+
+  border-color: rgba(255, 255, 255, 0.16);
+
+  color: #ffffff;
+
+  background: #172f48;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  html:not([data-theme="light"])
+  .home-page .search-select input {
+
+    border-color: rgba(255, 255, 255, 0.16);
+
+    color: #ffffff;
+
+    background: #172f48;
+  }
+}
+
+
+/* ==================================================
    HOVER
-========================================= */
+================================================== */
 
 .home-page .search-select input:hover {
   border-color: #b8c0cc;
 }
 
 
-/* =========================================
+/* ==================================================
    FOCUS
-========================================= */
+================================================== */
 
 .home-page .search-select input:focus {
   border-color: #5837f4;
@@ -391,17 +744,13 @@
 }
 
 
-/* =========================================
-   REAL CALENDAR ICON
-========================================= */
+/* ==================================================
+   DATE PICKER ICON
+================================================== */
 
-/*
-   IMPORTANT:
-   We are NOT hiding the browser's native
-   calendar icon anymore.
-*/
+.home-page
+.search-select input::-webkit-calendar-picker-indicator {
 
-.home-page .search-select input::-webkit-calendar-picker-indicator {
   opacity: 1;
 
   width: 18px;
@@ -411,11 +760,13 @@
 }
 
 
-/* =========================================
-   REAL TIME PICKER ICON
-========================================= */
+/* ==================================================
+   TIME PICKER ICON
+================================================== */
 
-.home-page .time-select input::-webkit-calendar-picker-indicator {
+.home-page
+.time-select input::-webkit-calendar-picker-indicator {
+
   opacity: 1;
 
   width: 18px;
@@ -425,46 +776,86 @@
 }
 
 
-/* =========================================
-   DATE/TIME TEXT
-========================================= */
+/* ==================================================
+   DATE / TIME TEXT
+================================================== */
 
-.home-page .search-select input::-webkit-datetime-edit {
+.home-page
+.search-select input::-webkit-datetime-edit {
   color: #26364e;
 }
 
-.home-page .search-select input::-webkit-datetime-edit-text {
+
+.home-page
+.search-select input::-webkit-datetime-edit-text {
   color: #8b929d;
 }
 
-.home-page .search-select input::-webkit-datetime-edit-month-field,
-.home-page .search-select input::-webkit-datetime-edit-day-field,
-.home-page .search-select input::-webkit-datetime-edit-year-field,
-.home-page .search-select input::-webkit-datetime-edit-hour-field,
-.home-page .search-select input::-webkit-datetime-edit-minute-field,
-.home-page .search-select input::-webkit-datetime-edit-ampm-field {
+
+.home-page
+.search-select input::-webkit-datetime-edit-month-field,
+.home-page
+.search-select input::-webkit-datetime-edit-day-field,
+.home-page
+.search-select input::-webkit-datetime-edit-year-field,
+.home-page
+.search-select input::-webkit-datetime-edit-hour-field,
+.home-page
+.search-select input::-webkit-datetime-edit-minute-field,
+.home-page
+.search-select input::-webkit-datetime-edit-ampm-field {
   color: #26364e;
 }
 
 
-/* =========================================
-   KEEP NATIVE DATE/TIME PICKER
-========================================= */
+/* DARK DATE TEXT */
+
+html[data-theme="dark"]
+.home-page
+.search-select input::-webkit-datetime-edit,
+html[data-theme="dark"]
+.home-page
+.search-select input::-webkit-datetime-edit-month-field,
+html[data-theme="dark"]
+.home-page
+.search-select input::-webkit-datetime-edit-day-field,
+html[data-theme="dark"]
+.home-page
+.search-select input::-webkit-datetime-edit-year-field,
+html[data-theme="dark"]
+.home-page
+.search-select input::-webkit-datetime-edit-hour-field,
+html[data-theme="dark"]
+.home-page
+.search-select input::-webkit-datetime-edit-minute-field,
+html[data-theme="dark"]
+.home-page
+.search-select input::-webkit-datetime-edit-ampm-field {
+  color: #ffffff;
+}
+
+
+/* ==================================================
+   KEEP NATIVE DATE / TIME PICKER
+================================================== */
 
 .home-page .date-select input {
   appearance: auto;
+
   -webkit-appearance: auto;
 }
+
 
 .home-page .time-select input {
   appearance: auto;
+
   -webkit-appearance: auto;
 }
 
 
-/* =========================================
+/* ==================================================
    SEARCH BUTTON
-========================================= */
+================================================== */
 
 .home-page .search-submit {
   display: grid;
@@ -494,6 +885,7 @@
     box-shadow 0.2s ease;
 }
 
+
 .home-page .search-submit:hover {
   background: #4727dd;
 
@@ -503,6 +895,7 @@
     0 6px 15px rgba(88, 55, 244, 0.25);
 }
 
+
 .home-page .search-submit svg {
   width: 23px;
   height: 23px;
@@ -511,10 +904,9 @@
 }
 
 
-/* =========================================
+/* ==================================================
    COMPACT SEARCH
-   Hidden on desktop
-========================================= */
+================================================== */
 
 .compact-search,
 .compact-search-submit {
@@ -522,9 +914,9 @@
 }
 
 
-/* =========================================
+/* ==================================================
    SCREEN READER ONLY
-========================================= */
+================================================== */
 
 .sr-only {
   position: absolute;
@@ -544,102 +936,176 @@
 }
 
 
-/* =========================================
+/* ==================================================
    TABLET
-========================================= */
+================================================== */
 
-@media (max-width: 800px) {
-
-  /* =======================================
-     HERO
-  ======================================= */
+@media (max-width: 900px) {
 
   .home-page.hero-section {
-    min-height: 700px;
+    min-height: 610px;
+
+    height: 610px;
   }
+
 
   .home-page .hero-copy {
-    max-width: 650px;
+    width: 58%;
 
-    padding-top: 50px;
-
-    padding-bottom: 135px;
+    padding-top: 45px;
   }
 
-  .home-page .hero-copy::before {
-    top: 20px;
-
-    left: -40px;
-
-    width: 650px;
-
-    height: 360px;
-  }
 
   .home-page .hero-copy h1 {
-    max-width: 620px;
-
-    font-size: clamp(46px, 8vw, 64px);
-
-    line-height: 0.95;
-
-    letter-spacing: -2.5px;
+    font-size: 54px;
   }
+
 
   .home-page .hero-text {
-    max-width: 510px;
+    max-width: 500px;
 
-    margin-top: 20px;
-
-    font-size: 18px;
-
-    line-height: 1.5;
+    font-size: 17px;
   }
 
-  .home-page .hero-actions {
-    margin-top: 24px;
-  }
-
-
-  /* =======================================
-     HERO IMAGE
-  ======================================= */
 
   .home-page .hero-visual {
-    top: 245px;
+    width: 45%;
+
+    height: 390px;
+  }
+
+
+  /*
+     Search remains visible immediately.
+  */
+
+  .home-page .search-panel {
+
+    left: 18px;
+    right: 18px;
+
+    bottom: 18px;
+
+    grid-template-columns:
+      minmax(150px, 1fr)
+      minmax(190px, 1.2fr)
+      minmax(190px, 1.2fr)
+      60px;
+
+    min-height: 76px;
+  }
+}
+
+
+/* ==================================================
+   MOBILE / SMALL TABLET
+================================================== */
+
+@media (max-width: 700px) {
+
+  .home-page.hero-section {
+
+    min-height: 680px;
+
+    height: 680px;
+  }
+
+
+  /* ================================================
+     HERO COPY
+  ================================================ */
+
+  .home-page .hero-copy {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    padding: 40px 25px 0;
+  }
+
+
+  .home-page .hero-copy::before {
+
+    top: 15px;
+
+    left: -50px;
+
+    width: 580px;
 
     height: 350px;
   }
 
 
-  /* =======================================
-     HIDE LARGE SEARCH
-  ======================================= */
+  .home-page .hero-copy h1 {
 
-  .home-page .search-panel .search-field,
-  .home-page .search-submit {
-    display: none;
+    max-width: 600px;
+
+    font-size: clamp(
+      45px,
+      9vw,
+      58px
+    );
+
+    line-height: 0.94;
+
+    letter-spacing: -2.5px;
   }
 
 
-  /* =======================================
-     COMPACT SEARCH
-  ======================================= */
+  .home-page .hero-text {
+
+    max-width: 520px;
+
+    margin-top: 18px;
+
+    font-size: 17px;
+  }
+
+
+  .home-page .hero-actions {
+
+    margin-top: 20px;
+  }
+
+
+  /* ================================================
+     HERO IMAGE
+  ================================================ */
+
+  .home-page .hero-visual {
+
+    top: 285px;
+
+    right: 0;
+
+    width: 100%;
+
+    height: 250px;
+
+    background-position: center;
+
+    box-shadow: none !important;
+  }
+
+
+  /* ================================================
+     SEARCH
+  ================================================ */
 
   .home-page .search-panel {
-    left: 20px;
 
-    right: 20px;
+    left: 16px;
 
-    bottom: 20px;
+    right: 16px;
+
+    bottom: 16px;
 
     display: grid;
 
     grid-template-columns:
       minmax(0, 1fr)
       auto;
-
-    align-items: center;
 
     gap: 8px;
 
@@ -648,21 +1114,26 @@
     padding: 8px;
 
     border-radius: 18px;
-
-    border: 1px solid rgba(24, 39, 55, 0.12);
-
-    background: #ffffff;
-
-    box-shadow:
-      0 12px 30px rgba(12, 34, 53, 0.16);
   }
 
 
-  /* =======================================
-     COMPACT INPUT
-  ======================================= */
+  /*
+     Hide desktop fields.
+  */
+
+  .home-page .search-panel .search-field,
+  .home-page .search-submit {
+
+    display: none;
+  }
+
+
+  /* ================================================
+     COMPACT SEARCH
+  ================================================ */
 
   .home-page .compact-search {
+
     display: flex;
 
     align-items: center;
@@ -678,7 +1149,9 @@
     color: #6b7f9d;
   }
 
+
   .home-page .compact-search svg {
+
     width: 19px;
 
     height: 19px;
@@ -686,7 +1159,9 @@
     flex: 0 0 auto;
   }
 
+
   .home-page .compact-search input {
+
     min-width: 0;
 
     width: 100%;
@@ -704,22 +1179,23 @@
     font-family: "DM Sans", sans-serif;
 
     font-size: 15px;
-
-    font-weight: 400;
   }
 
+
   .home-page .compact-search input::placeholder {
+
     color: #7a8799;
 
     opacity: 1;
   }
 
 
-  /* =======================================
-     COMPACT SEARCH BUTTON
-  ======================================= */
+  /* ================================================
+     MOBILE SEARCH BUTTON
+  ================================================ */
 
   .home-page .compact-search-submit {
+
     display: grid;
 
     place-items: center;
@@ -737,19 +1213,11 @@
     background: #5837f4;
 
     cursor: pointer;
-
-    transition:
-      background 0.2s ease,
-      transform 0.2s ease;
   }
 
-  .home-page .compact-search-submit:hover {
-    background: #4727dd;
-
-    transform: translateY(-1px);
-  }
 
   .home-page .compact-search-submit svg {
+
     width: 21px;
 
     height: 21px;
@@ -757,107 +1225,136 @@
 }
 
 
-/* =========================================
+/* ==================================================
    SMALL MOBILE
-========================================= */
+================================================== */
 
 @media (max-width: 520px) {
 
   .home-page.hero-section {
+
     min-height: 650px;
+
+    height: 650px;
   }
+
 
   .home-page .hero-copy {
-    padding-top: 42px;
 
-    padding-bottom: 120px;
+    padding:
+      35px
+      20px
+      0;
   }
 
-  .home-page .hero-copy::before {
-    top: 15px;
-
-    left: -50px;
-
-    width: 580px;
-
-    height: 350px;
-  }
 
   .home-page .hero-copy h1 {
-    font-size: 48px;
+
+    font-size: 45px;
 
     line-height: 0.94;
 
-    letter-spacing: -2.5px;
+    letter-spacing: -2px;
   }
+
 
   .home-page .hero-text {
-    max-width: 100%;
 
-    margin-top: 18px;
+    margin-top: 17px;
 
-    font-size: 17px;
+    font-size: 16px;
 
-    line-height: 1.5;
+    line-height: 1.45;
   }
+
 
   .home-page .hero-actions {
-    margin-top: 22px;
 
-    gap: 10px;
+    gap: 9px;
+
+    margin-top: 19px;
   }
 
-
-  /* =======================================
-     HERO IMAGE
-  ======================================= */
 
   .home-page .hero-visual {
-    top: 235px;
 
-    height: 320px;
+    top: 285px;
+
+    height: 225px;
   }
 
-
-  /* =======================================
-     MOBILE SEARCH
-  ======================================= */
 
   .home-page .search-panel {
-    left: 14px;
 
-    right: 14px;
+    left: 12px;
 
-    bottom: 14px;
+    right: 12px;
 
-    min-height: 62px;
+    bottom: 12px;
 
-    padding: 7px;
+    min-height: 60px;
 
-    border-radius: 16px;
+    padding: 6px;
+
+    border-radius: 15px;
   }
 
+
   .home-page .compact-search {
+
     height: 46px;
 
     padding: 0 10px;
   }
 
+
   .home-page .compact-search input {
+
     font-size: 14px;
   }
 
+
   .home-page .compact-search-submit {
+
     width: 46px;
 
     height: 46px;
 
     border-radius: 11px;
   }
+}
 
-  .home-page .compact-search-submit svg {
-    width: 20px;
 
-    height: 20px;
+/* ==================================================
+   EXTRA SMALL SCREEN
+================================================== */
+
+@media (max-width: 380px) {
+
+  .home-page.hero-section {
+
+    min-height: 630px;
+
+    height: 630px;
+  }
+
+
+  .home-page .hero-copy h1 {
+
+    font-size: 40px;
+  }
+
+
+  .home-page .hero-text {
+
+    font-size: 15px;
+  }
+
+
+  .home-page .hero-visual {
+
+    top: 285px;
+
+    height: 205px;
   }
 }
